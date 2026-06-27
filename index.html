@@ -470,9 +470,40 @@
         /* ── ABOUT — EDITORIAL TWO-COLUMN ── */
         .about-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 50px;
             align-items: start;
+        }
+
+        .about-photo-wrapper {
+            position: relative;
+        }
+
+        .about-client-photo {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 4px solid var(--cream);
+            box-shadow: var(--shadow-lg);
+            background: var(--cream);
+            transition: var(--transition);
+        }
+
+        .about-client-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-client-photo:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-details-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
         }
 
         .about-prose p {
@@ -675,8 +706,8 @@
         /* ── WORKING STAFFS SECTION ── */
         .staff-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
             margin-top: 50px;
         }
 
@@ -809,6 +840,13 @@
             transform: scaleX(1);
         }
 
+        .svc-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
         .svc-icon {
             width: 52px;
             height: 52px;
@@ -817,7 +855,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 18px;
+            flex-shrink: 0;
             transition: var(--transition);
         }
 
@@ -842,7 +880,8 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.15rem;
             color: var(--text-primary);
-            margin-bottom: 10px;
+            margin-bottom: 0;
+            line-height: 1.35;
         }
 
         .svc-card p {
@@ -1198,7 +1237,14 @@
 
             .about-layout {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 30px;
+            }
+
+            .about-photo-wrapper {
+                position: relative;
+                top: 0;
+                max-width: 400px;
+                margin: 0 auto;
             }
 
             .services-mosaic {
@@ -1300,7 +1346,8 @@
                 padding: 22px 20px;
             }
 
-            .svc-icon {
+            .svc-card-header {
+                gap: 12px;
                 margin-bottom: 12px;
             }
 
@@ -2184,8 +2231,34 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            #books-view .brand-logo {
+                height: 38px;
+            }
+
+            #books-view .brand-text h1 {
+                font-size: 1.05rem;
+                letter-spacing: 0.5px;
+            }
+
+            #books-view .brand-text span {
+                font-size: 0.62rem;
+                letter-spacing: 0.8px;
+            }
+
+            #books-view .nav-container {
+                padding: 10px 4%;
+            }
+
+            #books-view .library-hero {
+                padding: 45px 5%;
+            }
+
             #books-view .library-hero h2 {
-                font-size: 2.2rem;
+                font-size: 1.95rem;
+            }
+
+            #books-view .library-hero p {
+                font-size: 0.95rem;
             }
 
             #books-view .lightbox-close-btn {
@@ -2198,12 +2271,28 @@
                 display: none;
             }
 
+            #books-view .lightbox-content-wrapper {
+                width: 95%;
+                margin: 40px auto;
+            }
+
             #books-view .lightbox-caption {
-                font-size: 1.1rem;
+                font-size: 1.15rem;
+                margin-top: 15px;
+            }
+
+            #books-view .lightbox-subcaption {
+                font-size: 0.78rem;
+            }
+
+            #books-view .contents-header {
+                font-size: 1.15rem;
+                margin-bottom: 15px;
             }
 
             #books-view .lightbox-split-container {
                 grid-template-columns: 1fr;
+                height: auto;
                 max-height: 85vh;
                 overflow-y: auto;
             }
@@ -2211,16 +2300,27 @@
             #books-view .lightbox-left-pane {
                 border-right: none;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-                padding: 25px 20px;
+                padding: 20px 16px;
+                height: auto;
             }
 
             #books-view .lightbox-right-pane {
-                padding: 25px 20px;
-                max-height: 45vh;
+                padding: 20px 16px;
+                height: auto;
+                max-height: none;
+                overflow: visible;
+                background: rgba(13, 51, 33, 0.45);
+            }
+
+            #books-view .lightbox-chapters-list {
+                overflow-y: visible;
+                height: auto;
+                max-height: none;
+                padding-right: 0;
             }
 
             #books-view .lightbox-img {
-                max-height: 35vh;
+                max-height: 240px;
             }
         }
 
@@ -2248,10 +2348,24 @@
                 font-size: 0.85rem;
             }
 
-            #books-view .nav-container {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
+            #books-view .brand-logo {
+                height: 36px;
+            }
+
+            #books-view .brand-text h1 {
+                font-size: 0.96rem;
+                letter-spacing: 0.2px;
+            }
+
+            #books-view .brand-text span {
+                font-size: 0.58rem;
+                letter-spacing: 0.5px;
+            }
+
+            #books-view .back-btn {
+                padding: 6px 14px;
+                font-size: 0.8rem;
+                gap: 4px;
             }
         }
     </style>
@@ -2334,90 +2448,101 @@
         <section id="about" class="section">
             <div class="section-inner">
                 <div class="about-layout">
-                    <div class="about-prose animate-in">
-                        <div class="section-label">Who We Are</div>
-                        <h2 class="section-heading">Professional Profile</h2>
-                        <p>
-                            <strong>Mr. Arun Kanagasabapathy</strong> is a highly accomplished Civil Engineer and Real
-                            Estate Valuer with a career spanning more than 25 years. Representing a standard of
-                            professional rigor, his practice integrates core civil engineering diagnostics with
-                            high-tier financial-legal valuations.
-                        </p>
-                        <p>
-                            He is a Registered Valuer under the Central Board of Direct Taxes (CBDT) for wealth tax
-                            evaluation and assets coming under the scrutiny of the Black Money Act. Additionally, he
-                            holds certifications under the Companies Act 2013, enabling corporate asset valuation.
-                        </p>
-                        <p>
-                            An active academic and educator in the field, Mr. Arun has co-authored 9 authoritative books
-                            on practical valuation and has published 10 technical papers in the prestigious <em>Indian
-                                Valuer</em> journal. His expertise is widely sought after in national forums, having
-                            attended over 70 professional conferences in India and key international conventions,
-                            including the Landmark Valuation Summit in Bangkok.
-                        </p>
+                    <!-- Left Column: Large Premium Portrait -->
+                    <div class="about-photo-wrapper animate-in">
+                        <div class="about-client-photo">
+                            <img src="images/arun.jpg" alt="Mr. Arun Kanagasabapathy Portrait">
+                        </div>
                     </div>
-                    <div class="credentials-panel animate-in">
-                        <h4>Academic & Registrations</h4>
-                        <div class="credential-row">
-                            <div class="cred-dot">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                                    <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
-                                </svg>
-                            </div>
-                            <div class="cred-text">
-                                <h5>Academic Degrees</h5>
-                                <p>Bachelor of Civil Engineering & M.Sc. in Real Estate Valuation</p>
-                            </div>
+                    
+                    <!-- Right Column: Biography & Credentials Stacked -->
+                    <div class="about-details-stack">
+                        <div class="about-prose animate-in">
+                            <div class="section-label">Who We Are</div>
+                            <h2 class="section-heading">Professional Profile</h2>
+                            <p>
+                                <strong>Mr. Arun Kanagasabapathy</strong> is a highly accomplished Civil Engineer and Real
+                                Estate Valuer with a career spanning more than 25 years. Representing a standard of
+                                professional rigor, his practice integrates core civil engineering diagnostics with
+                                high-tier financial-legal valuations.
+                            </p>
+                            <p>
+                                He is a CBDT Registered Valuer for Wealth Tax, Direct Taxes, and the Black Money Act, as
+                                well as a Registered Valuer under Section 247 of the Companies Act, 2013. Additionally, he
+                                is a Fellow of the Institution of Valuers (FIV) and a Member of the Institution of Engineers
+                                (MIE).
+                            </p>
+                            <p>
+                                Over his distinguished career, he has authored nine standard reference textbooks on practical
+                                valuation and has published 10 technical papers in the prestigious <em>Indian Valuer</em>
+                                journal. His expertise is widely sought after in national forums, having attended over 70
+                                professional conferences in India and key international conventions, including the Landmark
+                                Valuation Summit in Bangkok.
+                            </p>
                         </div>
-                        <div class="credential-row">
-                            <div class="cred-dot">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                    <polyline points="14 2 14 8 20 8"></polyline>
-                                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                                    <polyline points="10 9 9 9 8 9"></polyline>
-                                </svg>
+                        <div class="credentials-panel animate-in">
+                            <h4>Academic & Registrations</h4>
+                            <div class="credential-row">
+                                <div class="cred-dot">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                        <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+                                    </svg>
+                                </div>
+                                <div class="cred-text">
+                                    <h5>Academic Degrees</h5>
+                                    <p>Bachelor of Civil Engineering & M.Sc. in Real Estate Valuation</p>
+                                </div>
                             </div>
-                            <div class="cred-text">
-                                <h5>CBDT Registered Valuer</h5>
-                                <p>Wealth Tax Act, Black Money Act (Central Board of Direct Taxes)</p>
+                            <div class="credential-row">
+                                <div class="cred-dot">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                                        <polyline points="10 9 9 9 8 9"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="cred-text">
+                                    <h5>CBDT Registered Valuer</h5>
+                                    <p>Wealth Tax Act, Black Money Act (Central Board of Direct Taxes)</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="credential-row">
-                            <div class="cred-dot">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
-                                    <line x1="9" y1="22" x2="9" y2="16"></line>
-                                    <line x1="15" y1="22" x2="15" y2="16"></line>
-                                    <line x1="9" y1="16" x2="15" y2="16"></line>
-                                    <path d="M8 6h2v2H8V6zm0 4h2v2H8v-2zm6-4h2v2h-2V6zm0 4h2v2h-2v-2z"></path>
-                                </svg>
+                            <div class="credential-row">
+                                <div class="cred-dot">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                                        <line x1="9" y1="22" x2="9" y2="16"></line>
+                                        <line x1="15" y1="22" x2="15" y2="16"></line>
+                                        <line x1="9" y1="16" x2="15" y2="16"></line>
+                                        <path d="M8 6h2v2H8V6zm0 4h2v2H8v-2zm6-4h2v2h-2V6zm0 4h2v2h-2v-2z"></path>
+                                    </svg>
+                                </div>
+                                <div class="cred-text">
+                                    <h5>Corporate Registrar</h5>
+                                    <p>Registered Valuer under Section 247 of the Companies Act, 2013</p>
+                                </div>
                             </div>
-                            <div class="cred-text">
-                                <h5>Corporate Registrar</h5>
-                                <p>Registered Valuer under Section 247 of the Companies Act, 2013</p>
-                            </div>
-                        </div>
-                        <div class="credential-row">
-                            <div class="cred-dot">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="3 7 12 2 21 7"></polyline>
-                                    <line x1="4" y1="22" x2="20" y2="22"></line>
-                                    <line x1="6" y1="7" x2="6" y2="22"></line>
-                                    <line x1="10" y1="7" x2="10" y2="22"></line>
-                                    <line x1="14" y1="7" x2="14" y2="22"></line>
-                                    <line x1="18" y1="7" x2="18" y2="22"></line>
-                                </svg>
-                            </div>
-                            <div class="cred-text">
-                                <h5>Chartered & Professional Engineer</h5>
-                                <p>Institution of Valuers (F.I.V.) & Institution of Engineers (M.I.E.)</p>
+                            <div class="credential-row">
+                                <div class="cred-dot">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polyline points="3 7 12 2 21 7"></polyline>
+                                        <line x1="4" y1="22" x2="20" y2="22"></line>
+                                        <line x1="6" y1="7" x2="6" y2="22"></line>
+                                        <line x1="10" y1="7" x2="10" y2="22"></line>
+                                        <line x1="14" y1="7" x2="14" y2="22"></line>
+                                        <line x1="18" y1="7" x2="18" y2="22"></line>
+                                    </svg>
+                                </div>
+                                <div class="cred-text">
+                                    <h5>Chartered & Professional Engineer</h5>
+                                    <p>Institution of Valuers (F.I.V.) & Institution of Engineers (M.I.E.)</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -2480,88 +2605,100 @@
                 </div>
                 <div class="services-mosaic">
                     <div class="svc-card animate-in">
-                        <div class="svc-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                            </svg>
+                        <div class="svc-card-header">
+                            <div class="svc-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                </svg>
+                            </div>
+                            <h4>Capital Gains Valuation</h4>
                         </div>
-                        <h4>Capital Gains Valuation</h4>
                         <p>Determining Fair Market Value as of 2001 (and subsequent indexation) for tax computations
                             under Section 50C/50CA of the Income Tax Act.</p>
                     </div>
                     <div class="svc-card animate-in">
-                        <div class="svc-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <line x1="12" y1="3" x2="12" y2="21"></line>
-                                <line x1="3" y1="7" x2="21" y2="7"></line>
-                                <path d="M6 7l-2 9h4l-2-9"></path>
-                                <path d="M18 7l-2 9h4l-2-9"></path>
-                                <path d="M4 21h16"></path>
-                            </svg>
+                        <div class="svc-card-header">
+                            <div class="svc-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <line x1="12" y1="3" x2="12" y2="21"></line>
+                                    <line x1="3" y1="7" x2="21" y2="7"></line>
+                                    <path d="M6 7l-2 9h4l-2-9"></path>
+                                    <path d="M18 7l-2 9h4l-2-9"></path>
+                                    <path d="M4 21h16"></path>
+                                </svg>
+                            </div>
+                            <h4>Direct & Indirect Taxes</h4>
                         </div>
-                        <h4>Direct & Indirect Taxes</h4>
                         <p>Filing certified assessments under Wealth Tax Act, Gift Tax Act, and Wealth Disclosure under
                             the Black Money Act.</p>
                     </div>
                     <div class="svc-card animate-in">
-                        <div class="svc-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <polyline points="3 7 12 2 21 7"></polyline>
-                                <line x1="4" y1="22" x2="20" y2="22"></line>
-                                <line x1="6" y1="7" x2="6" y2="22"></line>
-                                <line x1="10" y1="7" x2="10" y2="22"></line>
-                                <line x1="14" y1="7" x2="14" y2="22"></line>
-                                <line x1="18" y1="7" x2="18" y2="22"></line>
-                            </svg>
+                        <div class="svc-card-header">
+                            <div class="svc-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="3 7 12 2 21 7"></polyline>
+                                    <line x1="4" y1="22" x2="20" y2="22"></line>
+                                    <line x1="6" y1="7" x2="6" y2="22"></line>
+                                    <line x1="10" y1="7" x2="10" y2="22"></line>
+                                    <line x1="14" y1="7" x2="14" y2="22"></line>
+                                    <line x1="18" y1="7" x2="18" y2="22"></line>
+                                </svg>
+                            </div>
+                            <h4>Court Cases & Litigations</h4>
                         </div>
-                        <h4>Court Cases & Litigations</h4>
                         <p>Providing expert witness valuations, partition suit audits, rental fixation reviews, and
                             dispute resolutions in judicial hearings.</p>
                     </div>
                     <div class="svc-card animate-in">
-                        <div class="svc-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
-                                <line x1="9" y1="22" x2="9" y2="16"></line>
-                                <line x1="15" y1="22" x2="15" y2="16"></line>
-                                <line x1="9" y1="16" x2="15" y2="16"></line>
-                                <path d="M8 6h2v2H8V6zm0 4h2v2H8v-2zm6-4h2v2h-2V6zm0 4h2v2h-2v-2z"></path>
-                            </svg>
+                        <div class="svc-card-header">
+                            <div class="svc-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                                    <line x1="9" y1="22" x2="9" y2="16"></line>
+                                    <line x1="15" y1="22" x2="15" y2="16"></line>
+                                    <line x1="9" y1="16" x2="15" y2="16"></line>
+                                    <path d="M8 6h2v2H8V6zm0 4h2v2H8v-2zm6-4h2v2h-2V6zm0 4h2v2h-2v-2z"></path>
+                                </svg>
+                            </div>
+                            <h4>Companies Act Valuation</h4>
                         </div>
-                        <h4>Companies Act Valuation</h4>
                         <p>Corporate asset estimations, mergers, balance sheet assessments, liquidations, and financial
                             valuations under Companies Act 2013.</p>
                     </div>
                     <div class="svc-card animate-in">
-                        <div class="svc-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M3 22V2"></path>
-                                <path d="M3 5h18"></path>
-                                <path d="M9 5v13l4-4"></path>
-                                <path d="M21 5v3"></path>
-                                <path d="m13 18 8-8"></path>
-                            </svg>
+                        <div class="svc-card-header">
+                            <div class="svc-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M3 22V2"></path>
+                                    <path d="M3 5h18"></path>
+                                    <path d="M9 5v13l4-4"></path>
+                                    <path d="M21 5v3"></path>
+                                    <path d="m13 18 8-8"></path>
+                                </svg>
+                            </div>
+                            <h4>Structural Estimation</h4>
                         </div>
-                        <h4>Structural Estimation</h4>
                         <p>Quantity surveying, cost estimation, structural life-cycle inspections, and structural audits
                             for stability certificates.</p>
                     </div>
                     <div class="svc-card animate-in">
-                        <div class="svc-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="3" y="10" width="18" height="11" rx="2"></rect>
-                                <path d="M12 2L2 7h20L12 2z"></path>
-                                <path d="M6 21v-7h3v7M15 21v-7h3v7"></path>
-                            </svg>
+                        <div class="svc-card-header">
+                            <div class="svc-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="3" y="10" width="18" height="11" rx="2"></rect>
+                                    <path d="M12 2L2 7h20L12 2z"></path>
+                                    <path d="M6 21v-7h3v7M15 21v-7h3v7"></path>
+                                </svg>
+                            </div>
+                            <h4>Banking Collaterals</h4>
                         </div>
-                        <h4>Banking Collaterals</h4>
                         <p>Providing formal credit reports and security evaluation certificates for prime nationalized
                             and private bank lenders.</p>
                     </div>
@@ -2672,39 +2809,52 @@
                     <!-- Staff 1 -->
                     <div class="staff-card animate-in">
                         <div class="staff-img-wrap">
-                            <img src="images/staff_male_senior.png" alt="K. Vignesh Portrait">
+                            <img src="images/staff_jegadeesh.jpg" alt="B Jegadeesh Kanna Portrait">
                         </div>
                         <div class="staff-info">
-                            <h3>K. Vignesh</h3>
-                            <span class="staff-role">Senior Valuation Engineer</span>
-                            <p class="staff-edu">B.E. Civil Engineering</p>
-                            <p class="staff-bio">Over 8 years of experience in structural stability auditing, detailed quantity surveying, and commercial property assessment.</p>
+                            <h3>B Jegadeesh Kanna</h3>
+                            <span class="staff-role">Technical Engineer</span>
+                            <p class="staff-edu">B.Tech Civil</p>
+                            <p class="staff-bio">Over 13 years of experience in structural safety evaluations, civil project management, and detailed engineering audits.</p>
                         </div>
                     </div>
 
                     <!-- Staff 2 -->
                     <div class="staff-card animate-in">
                         <div class="staff-img-wrap">
-                            <img src="images/staff_female_structural.png" alt="S. Abinaya Portrait">
+                            <img src="images/staff_krishna.jpg" alt="M Krishna Kumar Portrait">
                         </div>
                         <div class="staff-info">
-                            <h3>S. Abinaya</h3>
-                            <span class="staff-role">Technical Engineer & CAD Specialist</span>
-                            <p class="staff-edu">M.E. Structural Engineering</p>
-                            <p class="staff-bio">Specializes in digital drafting, load analyses, and structural stability certifications for high-rise residential properties.</p>
+                            <h3>M Krishna Kumar</h3>
+                            <span class="staff-role">Technical Engineer</span>
+                            <p class="staff-edu">B.Tech Civil</p>
+                            <p class="staff-bio">Over 9 years of experience in structural stability diagnostics, site inspections, and bank collateral valuation.</p>
                         </div>
                     </div>
 
                     <!-- Staff 3 -->
                     <div class="staff-card animate-in">
                         <div class="staff-img-wrap">
-                            <img src="images/staff_male_coord.png" alt="R. Anand Portrait">
+                            <img src="images/staff_sivaranjani.jpg" alt="A Sivaranjani Portrait">
                         </div>
                         <div class="staff-info">
-                            <h3>R. Anand</h3>
-                            <span class="staff-role">Operations & Bank Liaison Officer</span>
-                            <p class="staff-edu">B.Com. (Operations Management)</p>
-                            <p class="staff-bio">Coordinates bank empanelment documentation, schedules site inspections, and handles official corporate valuations filing.</p>
+                            <h3>A Sivaranjani</h3>
+                            <span class="staff-role">Technical Engineer</span>
+                            <p class="staff-edu">B.E. Civil Engineering</p>
+                            <p class="staff-bio">Over 4 years of experience in technical drafting, load computations, and property valuation assessments.</p>
+                        </div>
+                    </div>
+
+                    <!-- Staff 4 -->
+                    <div class="staff-card animate-in">
+                        <div class="staff-img-wrap">
+                            <img src="images/staff_amalorpava.jpg" alt="M Amalorpava prithi Portrait">
+                        </div>
+                        <div class="staff-info">
+                            <h3>M Amalorpava prithi</h3>
+                            <span class="staff-role">Technical Engineer</span>
+                            <p class="staff-edu">B.Tech Information Technology</p>
+                            <p class="staff-bio">Over 12 years of experience in technical software systems development, database management, and workflow scheduling.</p>
                         </div>
                     </div>
                 </div>
