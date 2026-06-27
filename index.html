@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,56 +10,49 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <style>
-        /* --- DESIGN SYSTEM & CSS VARIABLES --- */
+        /* ══════════════════════════════════════════════════
+           EMERALD LUXE — Editorial Magazine Design
+           ══════════════════════════════════════════════════ */
         :root {
-            --primary: #1e293b;
-            /* Slate Charcoal, matching logo.png */
-            --primary-dark: #0f172a;
-            /* Deep Slate */
-            --accent: #c5a880;
-            /* Antique Gold */
-            --accent-light: #e2d4c0;
-            /* Light Gold Tint */
-            --accent-hover: #b5966d;
-            /* Darker Gold */
-            --text-dark: #334155;
-            /* High contrast slate text */
-            --text-light: #f8fafc;
-            /* Light text for dark backgrounds */
-            --bg-light: #faf9f6;
-            /* Warm Alabaster White */
+            --emerald: #1a5c3a;
+            --emerald-dark: #0d3321;
+            --emerald-deep: #071f14;
+            --ivory: #faf8f2;
+            --cream: #f0ebe0;
+            --gold: #c8a55a;
+            --gold-light: #e6d5a0;
+            --text-primary: #1a2a22;
+            --text-secondary: #4a5d53;
+            --text-muted: #7a8d83;
             --card-bg: #ffffff;
-            /* Pure white for cards */
-            --border-color: #e2e8f0;
-            /* Light gray borders */
-            --card-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
-            --hover-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            --gold-gradient: linear-gradient(135deg, #c5a880 0%, #a88a57 100%);
-            --dark-gradient: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            --border: #d4cfc4;
+            --shadow-sm: 0 2px 12px rgba(13, 51, 33, 0.06);
+            --shadow-md: 0 8px 30px rgba(13, 51, 33, 0.08);
+            --shadow-lg: 0 20px 50px rgba(13, 51, 33, 0.12);
+            --transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+            --emerald-gradient: linear-gradient(145deg, #1a5c3a, #0d3321);
+            --gold-gradient: linear-gradient(135deg, #c8a55a, #a88832);
         }
 
-        html {
-            overscroll-behavior: none;
-            background-color: #0f172a;
-            /* matches var(--primary-dark) */
-        }
-
-        /* --- GLOBAL RESET & STYLES --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+        }
+
+        html {
             scroll-behavior: smooth;
+            overscroll-behavior: none;
+            background: var(--emerald-deep);
         }
 
         body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
+            font-family: 'DM Sans', sans-serif;
+            background: var(--ivory);
+            color: var(--text-primary);
             line-height: 1.7;
             overflow-x: hidden;
         }
@@ -70,156 +63,79 @@
         h4,
         h5,
         h6 {
-            font-family: 'Outfit', sans-serif;
-            color: var(--primary-dark);
+            font-family: 'Playfair Display', serif;
             font-weight: 700;
+            color: var(--text-primary);
         }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 100px 0;
-        }
-
-        /* --- UTILITIES --- */
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px auto;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--gold-gradient);
-            margin: 12px auto 0 auto;
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: #64748b;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 32px;
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            border-radius: 6px;
-            border: 2px solid transparent;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(197, 168, 128, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(197, 168, 128, 0.45);
-            background: transparent;
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--border-color);
-            color: var(--primary-dark);
-            box-shadow: none;
-        }
-
-        .btn-outline:hover {
-            border-color: var(--primary-dark);
-            background: var(--primary-dark);
-            color: var(--text-light);
-            box-shadow: 0 4px 15px rgba(15, 23, 42, 0.1);
-        }
-
-        /* --- STICKY GLASSMORPHIC HEADER --- */
+        /* ── HEADER ── */
         header {
-            background: rgba(250, 249, 246, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(197, 168, 128, 0.15);
-            box-shadow: 0 2px 20px rgba(15, 23, 42, 0.02);
+            background: rgba(250, 248, 242, 0.92);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(26, 92, 58, 0.1);
             transition: var(--transition);
         }
 
         .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 5%;
-            max-width: 1400px;
+            max-width: 1380px;
             margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 4%;
         }
 
         .brand {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 14px;
             text-decoration: none;
         }
 
         .brand-logo {
-            height: 52px;
+            height: 50px;
             width: auto;
             object-fit: contain;
-            transition: var(--transition);
         }
 
         .brand-text h1 {
-            font-size: 1.35rem;
-            letter-spacing: 0.5px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            color: var(--emerald-dark);
             line-height: 1.2;
-            color: var(--primary-dark);
         }
 
         .brand-text span {
             display: block;
-            font-size: 0.78rem;
-            color: var(--accent-hover);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.72rem;
+            color: var(--gold);
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1.5px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
+            gap: 32px;
             align-items: center;
-            gap: 30px;
         }
 
         nav ul li a {
-            color: var(--primary-dark);
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text-primary);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
+            letter-spacing: 0.3px;
             position: relative;
-            padding: 8px 0;
+            padding: 6px 0;
             transition: var(--transition);
         }
 
@@ -227,15 +143,16 @@
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            left: 50%;
             width: 0;
             height: 2px;
-            background: var(--gold-gradient);
+            background: var(--emerald);
             transition: var(--transition);
+            transform: translateX(-50%);
         }
 
         nav ul li a:hover {
-            color: var(--accent-hover);
+            color: var(--emerald);
         }
 
         nav ul li a:hover::after {
@@ -243,12 +160,13 @@
         }
 
         .nav-book-btn {
-            background: var(--gold-gradient);
-            padding: 8px 20px;
-            border-radius: 4px;
-            color: var(--primary-dark) !important;
-            font-weight: 600;
-            box-shadow: 0 4px 10px rgba(197, 168, 128, 0.2);
+            background: var(--emerald-gradient) !important;
+            padding: 9px 22px !important;
+            border-radius: 50px !important;
+            color: #fff !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 14px rgba(26, 92, 58, 0.25);
         }
 
         .nav-book-btn::after {
@@ -256,13 +174,10 @@
         }
 
         .nav-book-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 15px rgba(197, 168, 128, 0.3);
-            color: var(--primary-dark) !important;
-            filter: brightness(1.05);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 92, 58, 0.35) !important;
         }
 
-        /* Mobile Menu Toggle */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -274,834 +189,1031 @@
 
         .menu-toggle span {
             height: 3px;
-            width: 25px;
-            background: var(--primary-dark);
+            width: 26px;
+            background: var(--emerald-dark);
             border-radius: 3px;
             transition: var(--transition);
         }
 
-        /* --- HERO SECTION --- */
+        /* ── HERO — EDITORIAL SPLIT ── */
         .hero {
             position: relative;
-            background: var(--dark-gradient);
-            color: var(--text-light);
-            padding: 140px 0 120px 0;
+            min-height: 92vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             overflow: hidden;
         }
 
-        .hero::before {
+        .hero-left {
+            background: var(--emerald-gradient);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 6% 80px 6%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-left::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(200, 165, 90, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-left::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(200, 165, 90, 0.3), transparent);
+        }
+
+        .hero-eyebrow {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gold-light);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.6rem;
+            color: #ffffff;
+            line-height: 1.12;
+            margin-bottom: 20px;
+        }
+
+        .hero-title em {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .hero-subtitle-text {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            max-width: 520px;
+            line-height: 1.8;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 34px;
+            background: var(--gold-gradient);
+            color: var(--emerald-deep);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+            box-shadow: 0 6px 20px rgba(200, 165, 90, 0.35);
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(200, 165, 90, 0.5);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 34px;
+            background: transparent;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            cursor: pointer;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .hero-right {
+            background: var(--cream);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 5%;
+            position: relative;
+        }
+
+        .hero-right::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 80% 20%, rgba(197, 168, 128, 0.15) 0%, transparent 50%);
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a5c3a' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             pointer-events: none;
         }
 
-        .hero-container {
+        /* Stat Rings */
+        .hero-stats-ring {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
-            align-items: center;
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .hero-content h2 {
-            font-size: 3.5rem;
-            color: var(--text-light);
-            line-height: 1.15;
-            margin-bottom: 15px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.35rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 25px;
-            letter-spacing: 0.5px;
-            font-family: 'Outfit', sans-serif;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            opacity: 0.85;
-            margin-bottom: 40px;
-            max-width: 680px;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 20px;
-        }
-
-        .hero-graphic {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        /* Styled graphic element for hero representing stability/measure */
-        .hero-badge {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            backdrop-filter: blur(8px);
-            position: relative;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-            max-width: 320px;
-            width: 100%;
-        }
-
-        .hero-badge .scale-icon {
-            margin-bottom: 20px;
-            display: inline-block;
-            filter: drop-shadow(0 4px 10px rgba(197, 168, 128, 0.3));
-        }
-
-        .hero-badge .scale-icon svg {
-            width: 60px;
-            height: 60px;
-            stroke: var(--accent);
-            stroke-width: 1.5;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .hero-badge-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.25rem;
-            color: var(--text-light);
-            margin-bottom: 10px;
-        }
-
-        .hero-badge-desc {
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        /* --- STATS COUNTER BAR --- */
-        .stats-bar-wrapper {
-            margin-top: -50px;
-            position: relative;
-            z-index: 10;
-            width: 90%;
-            max-width: 1100px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .stats-bar {
-            background: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
-            border: 1px solid rgba(197, 168, 128, 0.2);
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            padding: 35px 20px;
-            text-align: center;
-        }
-
-        .stat-item {
-            position: relative;
-        }
-
-        .stat-item:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 15%;
-            height: 70%;
-            width: 1px;
-            background-color: var(--border-color);
-        }
-
-        .stat-item h3 {
-            font-size: 2.5rem;
-            color: var(--primary-dark);
-            margin-bottom: 5px;
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
-        }
-
-        .stat-item p {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #64748b;
-            font-weight: 600;
-        }
-
-        /* --- ABOUT & BIOGRAPHY SECTION --- */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 60px;
-            align-items: flex-start;
-        }
-
-        .about-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .about-content h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background-color: var(--accent);
-        }
-
-        .about-content p {
-            font-size: 1.05rem;
-            margin-bottom: 20px;
-            color: #475569;
-            text-align: justify;
-        }
-
-        .certifications-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: var(--card-shadow);
-            border-top: 4px solid var(--accent);
-        }
-
-        .certifications-card h4 {
-            font-size: 1.3rem;
-            margin-bottom: 25px;
-            color: var(--primary-dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .cert-item {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .cert-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .cert-icon {
-            color: var(--accent);
-            background: rgba(197, 168, 128, 0.1);
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .cert-icon svg {
-            width: 20px;
-            height: 20px;
-            stroke: var(--accent);
-            stroke-width: 2;
-            fill: none;
-        }
-
-        .cert-info h5 {
-            font-size: 0.95rem;
-            margin-bottom: 4px;
-            color: var(--primary-dark);
-        }
-
-        .cert-info p {
-            font-size: 0.85rem;
-            color: #64748b;
-        }
-
-        /* --- COMPACT HORIZONTAL JOURNEY STEPPER --- */
-        .timeline-section {
-            background-color: #f1f5f9;
-        }
-
-        .timeline-section .container {
-            padding: 50px 0;
-            /* Compact padding */
-        }
-
-        .timeline-section .section-header {
-            margin-bottom: 30px;
-        }
-
-        .journey-horizontal {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr 1fr;
             gap: 24px;
-            position: relative;
-            max-width: 1100px;
-            margin: 25px auto 0 auto;
+            max-width: 400px;
         }
 
-        .journey-horizontal::before {
-            content: '';
-            position: absolute;
-            top: 25px;
-            /* Aligns with center of 50px badge */
-            left: 16%;
-            right: 16%;
-            height: 2px;
-            background: var(--border-color);
-            z-index: 1;
-        }
-
-        .journey-step {
+        .ring-stat {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 28px 20px;
             text-align: center;
-            position: relative;
-            z-index: 2;
-            opacity: 0;
-            transform: translateY(15px);
-            transition: var(--transition);
-        }
-
-        .journey-step.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .journey-step-badge {
-            width: 50px;
-            height: 50px;
-            background: var(--card-bg);
-            border: 3px solid var(--accent);
-            color: var(--primary-dark);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px auto;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 0.95rem;
-            box-shadow: var(--card-shadow);
-            transition: var(--transition);
-        }
-
-        .journey-step:hover .journey-step-badge {
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
-            transform: scale(1.1);
-            box-shadow: 0 8px 16px rgba(197, 168, 128, 0.25);
-            border-color: transparent;
-        }
-
-        .journey-step-content {
-            background-color: var(--card-bg);
-            padding: 20px 24px;
-            border-radius: 8px;
-            box-shadow: var(--card-shadow);
-            border-top: 4px solid var(--accent);
-            transition: var(--transition);
-            height: calc(100% - 65px);
-            /* Ensure equal heights */
-            display: flex;
-            flex-direction: column;
-        }
-
-        .journey-step-content:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .journey-step-year {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--accent-hover);
-            margin-bottom: 6px;
-            display: block;
-        }
-
-        .journey-step h4 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            color: var(--primary-dark);
-            line-height: 1.3;
-        }
-
-        .journey-step p {
-            font-size: 0.85rem;
-            color: #64748b;
-            line-height: 1.5;
-            margin-top: auto;
-            /* Push down content to align */
-        }
-
-        /* --- CORE SERVICES SECTION --- */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .service-card {
-            background: var(--card-bg);
-            padding: 25px 20px;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(26, 92, 58, 0.08);
             transition: var(--transition);
             position: relative;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
         }
 
-        .service-card::before {
+        .ring-stat::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 4px;
-            background: var(--gold-gradient);
+            background: var(--emerald-gradient);
             transform: scaleX(0);
-            transform-origin: left;
             transition: var(--transition);
+            transform-origin: left;
         }
 
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--hover-shadow);
-            border-color: rgba(197, 168, 128, 0.3);
-        }
-
-        .service-card:hover::before {
+        .ring-stat:hover::before {
             transform: scaleX(1);
         }
 
-        .service-icon {
-            margin-bottom: 15px;
-            display: inline-block;
-            transition: var(--transition);
+        .ring-stat:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
         }
 
-        .service-icon svg {
-            width: 38px;
-            height: 38px;
-            stroke: var(--accent);
-            stroke-width: 1.75;
+        .ring-stat h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            color: var(--emerald);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .ring-stat p {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .ring-stat.gold-accent h3 {
+            color: var(--gold);
+        }
+
+        /* ── SECTION UTILITIES ── */
+        .section {
+            padding: 100px 5%;
+        }
+
+        .section-alt {
+            background: var(--cream);
+        }
+
+        .section-dark {
+            background: var(--emerald-gradient);
+            color: #ffffff;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--emerald);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .section-dark .section-label {
+            color: var(--gold-light);
+        }
+
+        .section-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            margin-bottom: 16px;
+            line-height: 1.15;
+        }
+
+        .section-dark .section-heading {
+            color: #fff;
+        }
+
+        .section-desc {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        .section-dark .section-desc {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ── ABOUT — EDITORIAL TWO-COLUMN ── */
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-prose p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            text-align: justify;
+            line-height: 1.85;
+        }
+
+        .about-prose p strong {
+            color: var(--text-primary);
+        }
+
+        .credentials-panel {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+            border-left: 5px solid var(--emerald);
+            position: relative;
+        }
+
+        .credentials-panel h4 {
+            font-size: 1.3rem;
+            margin-bottom: 28px;
+            color: var(--emerald-dark);
+        }
+
+        .credential-row {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            align-items: flex-start;
+        }
+
+        .credential-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .cred-dot {
+            width: 42px;
+            height: 42px;
+            min-width: 42px;
+            border-radius: 50%;
+            background: rgba(26, 92, 58, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+        }
+
+        .cred-dot svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--emerald);
+            stroke-width: 2;
             fill: none;
-            display: block;
-            transition: var(--transition);
         }
 
-        .service-card:hover .service-icon svg {
-            stroke: var(--primary-dark);
+        .cred-text h5 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 3px;
+        }
+
+        .cred-text p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ── JOURNEY — HORIZONTAL TIMELINE ── */
+        .journey-timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 60px auto 0 auto;
+            padding: 20px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: #e2dcd0;
+            z-index: 1;
+        }
+
+        .timeline-items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-node {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2px solid var(--gold);
+            color: var(--text-primary);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            margin-bottom: 25px;
+            z-index: 3;
+        }
+
+        .timeline-node.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(200, 165, 90, 0.4);
+        }
+
+        .timeline-item:hover .timeline-node {
             transform: scale(1.1);
         }
 
-        .service-card h4 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--primary-dark);
-        }
-
-        .service-card p {
-            font-size: 0.95rem;
-            color: #64748b;
-        }
-
-        /* --- BANK EMPANELMENT SECTION --- */
-        .banks-section {
-            background-color: var(--bg-light);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .banks-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-        }
-
-        .bank-card {
-            background: var(--card-bg);
-            border-radius: 8px;
-            padding: 30px 20px;
+        .timeline-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px 24px;
+            box-shadow: 0 10px 30px rgba(13, 51, 33, 0.04);
+            border-top: 4px solid var(--gold);
             text-align: center;
-            box-shadow: var(--card-shadow);
-            border: 1px solid rgba(226, 232, 240, 0.8);
+            transition: var(--transition);
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            flex-grow: 1;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(13, 51, 33, 0.08);
+        }
+
+        .card-year {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .card-company {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #4e6578;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .card-desc {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ── WORKING STAFFS SECTION ── */
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .staff-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid rgba(26, 92, 58, 0.06);
+            box-shadow: var(--shadow-sm);
+            padding: 30px 24px;
+            text-align: center;
             transition: var(--transition);
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 15px;
-            min-height: 160px;
         }
 
-        .bank-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--hover-shadow);
-            border-color: rgba(197, 168, 128, 0.4);
-            color: var(--primary-dark);
+        .staff-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(26, 92, 58, 0.15);
         }
 
-        .bank-logo-img {
-            height: 50px;
-            width: auto;
-            max-width: 140px;
-            object-fit: contain;
+        .staff-img-wrap {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 3px solid var(--cream);
+            box-shadow: var(--shadow-sm);
             transition: var(--transition);
+            background: var(--cream);
         }
 
-        .bank-card:hover .bank-logo-img {
+        .staff-card:hover .staff-img-wrap {
+            border-color: var(--gold);
             transform: scale(1.05);
         }
 
-        .bank-name {
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--primary-dark);
-            margin-top: 5px;
+        .staff-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .bank-subname {
-            font-size: 0.75rem;
-            color: #64748b;
+        .staff-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .staff-role {
+            display: block;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8rem;
+            color: var(--gold);
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
         }
 
-        /* --- BOOKS AND PUBLICATIONS CALL OUT --- */
-        .publications-section {
-            background: var(--dark-gradient);
-            color: var(--text-light);
+        .staff-edu {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .staff-bio {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 992px) {
+            .staff-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .staff-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+
+        /* ── SERVICES — EDITORIAL CARDS ── */
+        .services-mosaic {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 50px;
+        }
+
+        .svc-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 32px 28px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(26, 92, 58, 0.06);
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
         }
 
-        .publications-section::before {
+        .svc-card::after {
             content: '';
             position: absolute;
-            top: 0;
-            right: 0;
+            bottom: 0;
+            left: 0;
             width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 10% 80%, rgba(197, 168, 128, 0.1) 0%, transparent 60%);
-            pointer-events: none;
+            height: 3px;
+            background: var(--emerald-gradient);
+            transform: scaleX(0);
+            transition: var(--transition);
+            transform-origin: center;
         }
 
-        .publications-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 50px;
+        .svc-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .svc-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .svc-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(26, 92, 58, 0.07);
+            display: flex;
             align-items: center;
-        }
-
-        .publications-content h2 {
-            color: var(--text-light);
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .publications-content p {
-            font-size: 1.1rem;
-            opacity: 0.85;
-            margin-bottom: 30px;
-        }
-
-        .publications-stats {
-            display: flex;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .pub-stat-item h4 {
-            font-size: 2.8rem;
-            color: var(--accent);
-            font-weight: 800;
-        }
-
-        .pub-stat-item p {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.7;
-            margin-bottom: 0;
-        }
-
-        .publications-graphic {
-            display: flex;
             justify-content: center;
-            width: 100%;
-        }
-
-        /* Modern automatic books slider */
-        .books-carousel-viewport {
-            width: 100%;
-            max-width: 580px;
-            /* Increased from 460px */
-            overflow: hidden;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(255, 255, 255, 0.02);
-            padding: 30px 15px;
-            /* Increased padding */
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            margin-bottom: 18px;
             transition: var(--transition);
         }
 
-        .books-carousel-viewport:hover {
-            transform: translateY(-5px);
-            border-color: rgba(197, 168, 128, 0.25);
+        .svc-card:hover .svc-icon {
+            background: var(--emerald);
         }
 
-        .books-carousel-track {
+        .svc-icon svg {
+            width: 26px;
+            height: 26px;
+            stroke: var(--emerald);
+            stroke-width: 1.75;
+            fill: none;
+            transition: var(--transition);
+        }
+
+        .svc-card:hover .svc-icon svg {
+            stroke: #fff;
+        }
+
+        .svc-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .svc-card p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+
+        /* ── BANKS — HORIZONTAL MARQUEE ── */
+        .banks-track-wrapper {
+            overflow: hidden;
+            margin-top: 50px;
+            padding: 10px 0;
+        }
+
+        .banks-track {
             display: flex;
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-            width: 100%;
+            gap: 32px;
+            animation: marquee 30s linear infinite;
+            width: max-content;
         }
 
-        .carousel-slide-item {
-            flex: 0 0 50%;
-            padding: 0 8px;
-            box-sizing: border-box;
-            aspect-ratio: 2/3;
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
-        .carousel-slide-item img {
+        .bank-pill {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 20px 28px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(26, 92, 58, 0.06);
+            flex-shrink: 0;
+            transition: var(--transition);
+            min-width: 220px;
+        }
+
+        .bank-pill:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(26, 92, 58, 0.15);
+        }
+
+        .bank-pill img {
+            height: 40px;
+            width: auto;
+            max-width: 90px;
+            object-fit: contain;
+        }
+
+        .bank-pill-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bank-pill-text strong {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .bank-pill-text span {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+
+        /* ── PUBLICATIONS — DARK SECTION ── */
+        .pub-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .pub-stats-row {
+            display: flex;
+            gap: 50px;
+            margin: 30px 0 40px 0;
+        }
+
+        .pub-stat h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .pub-stat p {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, 0.55);
+            margin-top: 4px;
+        }
+
+        /* Book Fan Display */
+        .book-fan {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 0;
+            perspective: 900px;
+            padding: 20px 0;
+        }
+
+        .book-fan-item {
+            width: 120px;
+            height: 170px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: var(--transition);
+            flex-shrink: 0;
+            margin: 0 -12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .book-fan-item:nth-child(1) {
+            transform: rotate(-12deg) translateY(10px);
+            z-index: 1;
+        }
+
+        .book-fan-item:nth-child(2) {
+            transform: rotate(-6deg) translateY(4px);
+            z-index: 2;
+        }
+
+        .book-fan-item:nth-child(3) {
+            transform: rotate(0deg);
+            z-index: 3;
+        }
+
+        .book-fan-item:nth-child(4) {
+            transform: rotate(6deg) translateY(4px);
+            z-index: 2;
+        }
+
+        .book-fan-item:nth-child(5) {
+            transform: rotate(12deg) translateY(10px);
+            z-index: 1;
+        }
+
+        .book-fan-item:hover {
+            transform: rotate(0deg) translateY(-20px) scale(1.15) !important;
+            z-index: 10 !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .book-fan-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 6px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            pointer-events: none;
         }
 
-        /* --- CONTACT SECTION --- */
-        .contact-grid-layout {
+        .book-fan-label {
+            text-align: center;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            color: var(--gold-light);
+            margin-top: 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* ── CONTACT — ELEGANT LAYOUT ── */
+        .contact-layout {
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
             gap: 40px;
-            margin-top: 40px;
+            margin-top: 50px;
             align-items: stretch;
         }
 
-        .contact-map-card {
+        .contact-map-wrap {
             background: var(--card-bg);
-            border-radius: 12px;
-            padding: 12px;
-            box-shadow: var(--card-shadow);
-            border: 1px solid rgba(226, 232, 240, 0.8);
+            border-radius: 16px;
+            padding: 10px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(26, 92, 58, 0.08);
             min-height: 400px;
             display: flex;
         }
 
-        .contact-map-card iframe {
+        .contact-map-wrap iframe {
             width: 100%;
             height: 100%;
             min-height: 380px;
-            border-radius: 8px;
+            border-radius: 12px;
             border: none;
         }
 
-        .contact-info-column {
+        .contact-cards-stack {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            justify-content: space-between;
+            gap: 18px;
         }
 
-        .contact-card-item-vertical {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 24px 30px;
-            text-decoration: none;
-            color: inherit;
-            box-shadow: var(--card-shadow);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            transition: var(--transition);
+        .contact-card-link {
             display: flex;
             align-items: center;
-            gap: 20px;
-            flex-grow: 1;
+            gap: 18px;
+            padding: 24px;
+            background: var(--card-bg);
+            border-radius: 14px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(26, 92, 58, 0.06);
+            transition: var(--transition);
+            flex: 1;
         }
 
-        .contact-card-item-vertical:hover {
+        .contact-card-link:hover {
             transform: translateX(8px);
-            box-shadow: var(--hover-shadow);
-            border-color: rgba(197, 168, 128, 0.4);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(26, 92, 58, 0.15);
         }
 
-        .contact-card-icon {
-            color: var(--accent);
-            background: var(--bg-light);
-            border: 1px solid rgba(197, 168, 128, 0.3);
-            width: 56px;
-            height: 56px;
+        .contact-icon-circle {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(26, 92, 58, 0.06);
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            transition: var(--transition);
             flex-shrink: 0;
+            transition: var(--transition);
         }
 
-        .contact-card-icon svg {
-            width: 24px;
-            height: 24px;
-            stroke: currentColor;
+        .contact-card-link:hover .contact-icon-circle {
+            background: var(--emerald);
+        }
+
+        .contact-icon-circle svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--emerald);
             stroke-width: 2;
             fill: none;
-            display: block;
             transition: var(--transition);
         }
 
-        .contact-card-item-vertical:hover .contact-card-icon {
-            background: var(--primary-dark);
-            color: var(--text-light);
-            border-color: var(--primary-dark);
+        .contact-card-link:hover .contact-icon-circle svg {
+            stroke: #fff;
         }
 
-        .contact-card-item-vertical h4 {
-            font-size: 1.15rem;
-            color: var(--primary-dark);
-            font-family: 'Outfit', sans-serif;
-            margin-bottom: 4px;
+        .contact-card-link h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 3px;
         }
 
-        .contact-card-item-vertical p {
-            color: #64748b;
-            font-size: 0.9rem;
+        .contact-card-link p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
             line-height: 1.5;
         }
 
-        /* --- FOOTER --- */
+        /* ── FOOTER ── */
         footer {
-            background: var(--primary-dark);
-            color: #94a3b8;
-            padding: 60px 0 30px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: var(--emerald-deep);
+            color: rgba(255, 255, 255, 0.55);
+            padding: 60px 5% 30px 5%;
         }
 
-        .footer-grid {
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
             gap: 40px;
             padding-bottom: 40px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .footer-brand h4 {
-            color: var(--text-light);
-            font-size: 1.4rem;
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            font-size: 1.35rem;
             margin-bottom: 10px;
         }
 
         .footer-brand p {
-            font-size: 0.9rem;
-            opacity: 0.7;
+            font-size: 0.88rem;
+            line-height: 1.7;
             max-width: 450px;
         }
 
-        .footer-links ul {
+        .footer-nav ul {
             display: flex;
-            gap: 20px;
+            gap: 22px;
             list-style: none;
             justify-content: flex-end;
+            flex-wrap: wrap;
         }
 
-        .footer-links ul li a {
-            color: #94a3b8;
+        .footer-nav ul li a {
+            color: rgba(255, 255, 255, 0.55);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             transition: var(--transition);
         }
 
-        .footer-links ul li a:hover {
-            color: var(--accent);
+        .footer-nav ul li a:hover {
+            color: var(--gold);
         }
 
         .footer-bottom {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 30px;
             display: flex;
             justify-content: space-between;
-            font-size: 0.85rem;
-            opacity: 0.6;
+            padding-top: 28px;
+            font-size: 0.82rem;
+            opacity: 0.55;
         }
 
-        /* --- RESPONSIVE LAYOUTS --- */
+        /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
-            .hero-container {
+            .hero {
                 grid-template-columns: 1fr;
-                text-align: center;
+                min-height: auto;
             }
 
-            .hero-cta {
-                justify-content: center;
+            .hero-left {
+                padding: 80px 6%;
             }
 
-            .hero-graphic {
-                display: none;
-                /* Hide graphic badge on smaller tablet sizes */
+            .hero-right {
+                padding: 50px 6%;
             }
 
-            .stats-bar {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 20px;
+            .hero-title {
+                font-size: 2.8rem;
             }
 
-            .stats-bar-wrapper {
-                margin-top: -30px;
-            }
-
-            .stat-item:not(:last-child)::after {
-                display: none;
-            }
-
-            .about-grid,
-            .publications-wrapper,
-            .contact-grid {
+            .about-layout {
                 grid-template-columns: 1fr;
-                gap: 40px;
             }
 
-            .services-grid {
+            .services-mosaic {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .banks-grid {
-                grid-template-columns: repeat(3, 1fr);
+            .pub-grid {
+                grid-template-columns: 1fr;
             }
 
-            .footer-grid {
+            .footer-top {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
 
-            .footer-links ul {
+            .footer-nav ul {
                 justify-content: center;
             }
         }
@@ -1121,20 +1233,19 @@
                 position: absolute;
                 top: 100%;
                 left: 0;
-                background: var(--bg-light);
+                background: var(--ivory);
                 padding: 30px;
-                border-bottom: 1.5px solid var(--border-color);
+                border-bottom: 1px solid var(--border);
                 box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
             }
 
             nav.active {
                 display: block;
-                animation: fadeInDown 0.3s ease forwards;
             }
 
             nav ul {
                 flex-direction: column;
-                gap: 20px;
+                gap: 18px;
             }
 
             nav ul li a {
@@ -1143,88 +1254,92 @@
                 font-size: 1.05rem;
             }
 
-            .stats-bar {
-                grid-template-columns: repeat(2, 1fr);
+            .hero-title {
+                font-size: 2.2rem;
             }
 
-            .journey-horizontal {
+            .hero-stats-ring {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+
+            .services-mosaic {
                 grid-template-columns: 1fr;
-                gap: 25px;
             }
 
-            .journey-horizontal::before {
+            .timeline-line {
                 display: none;
             }
 
-            .journey-step {
-                text-align: left;
-                display: flex;
-                gap: 15px;
-                align-items: flex-start;
-            }
-
-            .journey-step-badge {
-                margin: 0;
-                flex-shrink: 0;
-            }
-
-            .journey-step-content {
-                flex-grow: 1;
-                height: auto;
-                /* Reset fixed height calculation for vertical layout */
-            }
-
-            .banks-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .contact-grid-layout {
+            .timeline-items {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 40px;
             }
 
-            .contact-map-card {
-                min-height: 300px;
+            .timeline-item {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .timeline-node {
+                margin-bottom: 0;
+                flex-shrink: 0;
+                margin-top: 10px;
+            }
+
+            .timeline-card {
+                text-align: left;
+                align-items: flex-start;
+                border-top: none;
+                border-left: 4px solid var(--gold);
+                padding: 24px 20px;
+            }
+
+            .contact-layout {
+                grid-template-columns: 1fr;
             }
 
             .footer-bottom {
                 flex-direction: column;
                 align-items: center;
-                gap: 15px;
+                gap: 12px;
                 text-align: center;
             }
         }
 
         @media (max-width: 480px) {
-            .hero-content h2 {
-                font-size: 2.4rem;
+            .hero-title {
+                font-size: 1.9rem;
             }
 
-            .hero-cta {
+            .hero-actions {
                 flex-direction: column;
-                gap: 12px;
             }
 
-            .stats-bar {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-
-            .services-grid,
-            .banks-grid {
+            .hero-stats-ring {
                 grid-template-columns: 1fr;
             }
 
-            .contact-form-card {
-                padding: 30px 20px;
+            .section {
+                padding: 70px 5%;
+            }
+
+            .section-heading {
+                font-size: 2rem;
+            }
+
+            .book-fan-item {
+                width: 80px;
+                height: 115px;
             }
         }
 
-        /* --- ANIMATIONS --- */
-        @keyframes fadeInDown {
+        /* ── ANIMATIONS ── */
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(-10px);
+                transform: translateY(30px);
             }
 
             to {
@@ -1233,10 +1348,21 @@
             }
         }
 
+        .animate-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .animate-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* --- SANDBOXED BOOK SHOWCASE STYLES --- */
         #books-view {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
+            background-color: var(--ivory);
+            color: var(--text-primary);
             line-height: 1.7;
             height: 100vh;
             overflow-y: auto;
@@ -1244,37 +1370,42 @@
         }
 
         :root {
-            --primary: #1e293b;
-            --primary-dark: #0f172a;
-            --accent: #c5a880;
-            --accent-hover: #b5966d;
-            --text-dark: #334155;
-            --text-light: #f8fafc;
-            --bg-light: #faf9f6;
+            --emerald: #1a5c3a;
+            --emerald-dark: #0d3321;
+            --emerald-deep: #071f14;
+            --ivory: #faf8f2;
+            --cream: #f0ebe0;
+            --gold: #c8a55a;
+            --gold-light: #e6d5a0;
+            --text-primary: #1a2a22;
+            --text-secondary: #4a5d53;
+            --text-muted: #7a8d83;
             --card-bg: #ffffff;
-            --border-color: #e2e8f0;
-            --card-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
-            --hover-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            --gold-gradient: linear-gradient(135deg, #c5a880 0%, #a88a57 100%);
-            --dark-gradient: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-        }
-
-        #books-view {
-            overscroll-behavior: none;
-            background-color: #0f172a;
+            --border: #d4cfc4;
+            --shadow-sm: 0 2px 12px rgba(13, 51, 33, 0.06);
+            --shadow-md: 0 8px 30px rgba(13, 51, 33, 0.08);
+            --shadow-lg: 0 20px 50px rgba(13, 51, 33, 0.12);
+            --transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+            --emerald-gradient: linear-gradient(145deg, #1a5c3a, #0d3321);
+            --gold-gradient: linear-gradient(135deg, #c8a55a, #a88832);
         }
 
         #books-view * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
         }
 
         #books-view {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
+            scroll-behavior: smooth;
+            overscroll-behavior: none;
+            background: var(--emerald-deep);
+        }
+
+        #books-view {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--ivory);
+            color: var(--text-primary);
             line-height: 1.7;
             overflow-x: hidden;
         }
@@ -1282,100 +1413,118 @@
         #books-view h1,
         #books-view h2,
         #books-view h3,
-        #books-view h4 {
-            font-family: 'Outfit', sans-serif;
-            color: var(--primary-dark);
+        #books-view h4,
+        #books-view h5,
+        #books-view h6 {
+            font-family: 'Playfair Display', serif;
             font-weight: 700;
+            color: var(--text-primary);
         }
 
         #books-view header {
-            background: rgba(250, 249, 246, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(197, 168, 128, 0.15);
-            box-shadow: 0 2px 20px rgba(15, 23, 42, 0.02);
+            background: rgba(250, 248, 242, 0.92);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(26, 92, 58, 0.1);
         }
 
         #books-view .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 5%;
-            max-width: 1400px;
+            max-width: 1380px;
             margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 4%;
         }
 
         #books-view .brand {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 14px;
             text-decoration: none;
         }
 
         #books-view .brand-logo {
-            height: 52px;
+            height: 50px;
             width: auto;
             object-fit: contain;
         }
 
         #books-view .brand-text h1 {
-            font-size: 1.35rem;
-            letter-spacing: 0.5px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            color: var(--emerald-dark);
             line-height: 1.2;
-            color: var(--primary-dark);
         }
 
         #books-view .brand-text span {
             display: block;
-            font-size: 0.78rem;
-            color: var(--accent-hover);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.72rem;
+            color: var(--gold);
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1.5px;
         }
 
         #books-view .back-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 10px 22px;
-            background: var(--gold-gradient);
-            color: var(--primary-dark);
+            padding: 10px 24px;
+            background: var(--emerald-gradient);
+            color: #fff;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
-            border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(197, 168, 128, 0.2);
+            font-size: 0.88rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 14px rgba(26, 92, 58, 0.25);
             transition: var(--transition);
         }
 
         #books-view .back-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(197, 168, 128, 0.3);
+            box-shadow: 0 6px 20px rgba(26, 92, 58, 0.35);
         }
 
         #books-view .library-hero {
-            background: var(--dark-gradient);
-            color: var(--text-light);
-            padding: 80px 20px;
+            background: var(--emerald-gradient);
+            color: #fff;
+            padding: 80px 5%;
             text-align: center;
             position: relative;
+            overflow: hidden;
+        }
+
+        #books-view .library-hero::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(200, 165, 90, 0.12) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         #books-view .library-hero h2 {
-            color: var(--text-light);
+            font-family: 'Playfair Display', serif;
+            color: #fff;
             font-size: 2.8rem;
             margin-bottom: 15px;
+            position: relative;
         }
 
         #books-view .library-hero p {
             max-width: 700px;
             margin: 0 auto;
             opacity: 0.85;
-            font-size: 1.1rem;
+            font-size: 1.08rem;
+            position: relative;
         }
 
         #books-view .gallery-container {
@@ -1388,22 +1537,35 @@
         #books-view .gallery-intro {
             text-align: center;
             margin-bottom: 50px;
-            color: #64748b;
+            color: var(--text-muted);
             font-size: 1rem;
+        }
+
+        #books-view .pricing-summary {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        #books-view .pricing-summary .alt-price {
+            color: var(--gold);
+            margin-top: 8px;
+            font-size: 1.1rem;
         }
 
         #books-view .library-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
+            gap: 28px;
         }
 
         #books-view .book-card {
             background: var(--card-bg);
-            border-radius: 8px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: var(--card-shadow);
-            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(26, 92, 58, 0.06);
             transition: var(--transition);
             cursor: pointer;
             display: flex;
@@ -1412,19 +1574,19 @@
 
         #books-view .book-card:hover {
             transform: translateY(-8px);
-            box-shadow: var(--hover-shadow);
-            border-color: rgba(197, 168, 128, 0.3);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(26, 92, 58, 0.15);
         }
 
         #books-view .book-cover-wrapper {
-            background-color: #f8fafc;
+            background: var(--cream);
             aspect-ratio: 2/3;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid rgba(26, 92, 58, 0.06);
         }
 
         #books-view .book-cover {
@@ -1444,7 +1606,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 23, 42, 0.4);
+            background: rgba(13, 51, 33, 0.45);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1461,7 +1623,7 @@
         }
 
         #books-view .book-info {
-            padding: 20px;
+            padding: 18px;
             text-align: center;
             flex-grow: 1;
             display: flex;
@@ -1470,17 +1632,63 @@
         }
 
         #books-view .book-title {
-            font-size: 1.05rem;
-            color: var(--primary-dark);
-            margin-bottom: 5px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            line-height: 1.4;
         }
 
-        #books-view .book-category {
-            font-size: 0.8rem;
-            color: var(--accent-hover);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        #books-view .book-price {
+            color: var(--emerald);
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        #books-view .payment-section {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto 60px auto;
+            padding: 40px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            border-left: 5px solid var(--emerald);
+        }
+
+        #books-view .payment-section h2 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--emerald-dark);
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gold);
+            display: inline-block;
+        }
+
+        #books-view .payment-section p {
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        #books-view .payment-details {
+            background: var(--cream);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid var(--gold);
+            margin-bottom: 25px;
+        }
+
+        #books-view .payment-details h3 {
+            margin-bottom: 15px;
+            color: var(--emerald-dark);
+            font-size: 1.2rem;
+        }
+
+        #books-view .payment-details p {
+            margin-bottom: 8px;
+            color: var(--text-primary);
         }
 
         #books-view .lightbox {
@@ -1491,7 +1699,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(15, 23, 42, 0.97);
+            background: rgba(7, 31, 20, 0.97);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             align-items: center;
@@ -1519,7 +1727,7 @@
         }
 
         #books-view .lightbox-close-btn:hover {
-            color: var(--accent);
+            color: var(--gold);
             transform: rotate(90deg);
         }
 
@@ -1546,7 +1754,7 @@
 
         #books-view .lightbox-nav-btn:hover {
             background: var(--gold-gradient);
-            color: var(--primary-dark);
+            color: var(--emerald-deep);
             border-color: transparent;
         }
 
@@ -1562,9 +1770,9 @@
             width: 90%;
             max-width: 1050px;
             position: relative;
-            background: #1e293b;
-            border: 1px solid rgba(197, 168, 128, 0.2);
-            border-radius: 12px;
+            background: var(--emerald-dark);
+            border: 1px solid rgba(200, 165, 90, 0.2);
+            border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
             margin: 0 auto;
@@ -1578,7 +1786,7 @@
         }
 
         #books-view .lightbox-left-pane {
-            background: rgba(15, 23, 42, 0.4);
+            background: rgba(7, 31, 20, 0.5);
             padding: 40px;
             display: flex;
             flex-direction: column;
@@ -1592,7 +1800,7 @@
             max-width: 100%;
             max-height: 360px;
             object-fit: contain;
-            border-radius: 6px;
+            border-radius: 8px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transform: scale(0.95);
@@ -1604,38 +1812,39 @@
         }
 
         #books-view .lightbox-caption {
-            color: var(--text-light);
+            color: #fff;
             margin-top: 20px;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 1.3rem;
             text-align: center;
             font-weight: 600;
         }
 
         #books-view .lightbox-subcaption {
-            color: var(--accent);
-            font-size: 0.9rem;
+            color: var(--gold);
+            font-size: 0.85rem;
             margin-top: 5px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-align: center;
+            font-weight: 600;
         }
 
         #books-view .lightbox-right-pane {
             padding: 40px;
             display: flex;
             flex-direction: column;
-            background: rgba(15, 23, 42, 0.2);
+            background: rgba(13, 51, 33, 0.3);
             overflow: hidden;
         }
 
         #books-view .contents-header {
-            color: var(--text-light);
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.35rem;
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
             margin-bottom: 20px;
             padding-bottom: 8px;
-            border-bottom: 2px solid var(--accent);
+            border-bottom: 2px solid var(--gold);
             display: inline-block;
             align-self: flex-start;
         }
@@ -1657,12 +1866,12 @@
         }
 
         #books-view .lightbox-chapters-list::-webkit-scrollbar-thumb {
-            background: var(--accent);
+            background: var(--gold);
             border-radius: 3px;
         }
 
         #books-view .chapter-item {
-            color: #cbd5e1;
+            color: #a8bfb0;
             font-size: 0.9rem;
             padding: 10px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -1677,7 +1886,7 @@
         }
 
         #books-view .chapter-bullet {
-            color: var(--accent);
+            color: var(--gold);
             font-weight: bold;
             font-size: 0.8rem;
             line-height: 1;
@@ -1689,7 +1898,7 @@
             padding-left: 37px !important;
             margin: 0 !important;
             list-style-type: decimal !important;
-            color: #cbd5e1 !important;
+            color: #a8bfb0 !important;
         }
 
         #books-view .lightbox-chapters-list ol li {
@@ -1697,7 +1906,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
             line-height: 1.6 !important;
             font-size: 0.95rem !important;
-            color: #cbd5e1 !important;
+            color: #a8bfb0 !important;
             display: list-item !important;
         }
 
@@ -1706,7 +1915,7 @@
         }
 
         #books-view .lightbox-chapters-list ol li::marker {
-            color: var(--accent) !important;
+            color: var(--gold) !important;
             font-weight: 600 !important;
         }
 
@@ -1718,14 +1927,14 @@
 
         #books-view .lightbox-chapters-list ol ol li {
             font-size: 0.88rem !important;
-            color: #94a3b8 !important;
+            color: #7a9a88 !important;
             border-bottom: none !important;
             padding: 4px 0 !important;
             display: list-item !important;
         }
 
         #books-view .lightbox-chapters-list ol ol li::marker {
-            color: rgba(197, 168, 128, 0.8) !important;
+            color: rgba(200, 165, 90, 0.8) !important;
             font-weight: 500 !important;
         }
 
@@ -1738,11 +1947,11 @@
             width: 100%;
             margin-top: 10px;
             font-size: 0.9rem;
-            color: #cbd5e1;
+            color: #a8bfb0;
         }
 
         #books-view .lightbox-index-table th {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-weight: 600;
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             padding: 10px 8px;
@@ -1767,40 +1976,40 @@
         #books-view .lightbox-chapters-list ul li {
             padding: 4px 0 !important;
             font-size: 0.88rem !important;
-            color: #94a3b8 !important;
+            color: #7a9a88 !important;
             border-bottom: none !important;
             display: list-item !important;
             list-style-type: disc !important;
         }
 
         #books-view .lightbox-chapters-list ul li::marker {
-            color: rgba(197, 168, 128, 0.6) !important;
+            color: rgba(200, 165, 90, 0.6) !important;
         }
 
         #books-view .lightbox-chapters-list h3 {
-            color: var(--accent) !important;
-            font-family: 'Outfit', sans-serif;
+            color: var(--gold) !important;
+            font-family: 'Playfair Display', serif;
             font-size: 1.25rem;
             margin-top: 10px;
             margin-bottom: 18px;
-            border-bottom: 1px solid rgba(197, 168, 128, 0.15);
+            border-bottom: 1px solid rgba(200, 165, 90, 0.15);
             padding-bottom: 8px;
         }
 
         #books-view footer {
-            background: var(--primary-dark);
-            color: #94a3b8;
+            background: var(--emerald-deep);
+            color: rgba(255, 255, 255, 0.5);
             padding: 40px 0;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 0.88rem;
         }
 
 
         @media (max-width: 1024px) {
             #books-view .library-grid {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 25px;
+                gap: 24px;
             }
 
             #books-view .lightbox-nav-btn {
@@ -1881,23 +2090,21 @@
 
     <!-- --- HOME PAGE VIEW --- -->
     <div id="home-view">
-        <!-- --- HEADER & NAVIGATION --- -->
+        <!-- ── HEADER ── -->
         <header>
             <div class="nav-container">
-                <a href="arunweb.html" class="brand">
+                <a href="arunweb2.html" class="brand">
                     <img src="logo.png" alt="Arun Valuation Logo" class="brand-logo">
                     <div class="brand-text">
                         <h1>ARUN KANAGASABAPATHY</h1>
                         <span>Registered Valuer & Chartered Engineer</span>
                     </div>
                 </a>
-
                 <div class="menu-toggle" id="mobile-menu-btn">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
-
                 <nav id="nav-menu">
                     <ul>
                         <li><a href="#about">About</a></li>
@@ -1911,240 +2118,210 @@
             </div>
         </header>
 
-        <!-- --- HERO SECTION --- -->
+        <!-- ── HERO — EDITORIAL SPLIT SCREEN ── -->
         <section class="hero">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h2>Precision. Authority. Integrity.</h2>
-                    <div class="hero-subtitle">Valuer under Wealth Tax, Black Money Act & Companies Act 2013</div>
-                    <p class="hero-description">
-                        With over 25 years of extensive practice in real estate valuation and civil engineering
-                        consultancies, providing certified assessments for capital gains, income tax compliance, court
-                        litigations, and corporate advisory.
-                    </p>
-                    <div class="hero-cta">
-                        <a href="#contact" class="btn">Schedule Consultation</a>
-                        <a href="#about" class="btn btn-outline"
-                            style="color: #fff; border-color: rgba(255,255,255,0.3);">Learn More</a>
-                    </div>
+            <div class="hero-left">
+                <div class="hero-eyebrow">Valuer under Wealth Tax, Black Money Act & Companies Act 2013</div>
+                <h2 class="hero-title">Precision.<br>Authority.<br><em>Integrity.</em></h2>
+                <p class="hero-subtitle-text">
+                    With over 25 years of extensive practice in real estate valuation and civil engineering
+                    consultancies, providing certified assessments for capital gains, income tax compliance, court
+                    litigations, and corporate advisory.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn-primary">Schedule Consultation</a>
+                    <a href="#about" class="btn-ghost">Learn More</a>
                 </div>
-                <div class="hero-graphic">
-                    <div class="hero-badge">
-                        <span class="scale-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <line x1="12" y1="3" x2="12" y2="21"></line>
-                                <line x1="3" y1="7" x2="21" y2="7"></line>
-                                <path d="M6 7l-2 9h4l-2-9"></path>
-                                <path d="M18 7l-2 9h4l-2-9"></path>
-                                <path d="M4 21h16"></path>
-                            </svg>
-                        </span>
-                        <h4 class="hero-badge-title">Equitable Valuation</h4>
-                        <p class="hero-badge-desc">Impartial structural audits and asset valuations backed by rigorous
-                            standards.</p>
+            </div>
+            <div class="hero-right">
+                <div class="hero-stats-ring">
+                    <div class="ring-stat">
+                        <h3>25+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="ring-stat gold-accent">
+                        <h3>153</h3>
+                        <p>Major Projects ('21-'25)</p>
+                    </div>
+                    <div class="ring-stat">
+                        <h3>9</h3>
+                        <p>Valuation Books</p>
+                    </div>
+                    <div class="ring-stat gold-accent">
+                        <h3>70+</h3>
+                        <p>Conferences</p>
+                    </div>
+                    <div class="ring-stat" style="grid-column: 1 / -1;">
+                        <h3>10</h3>
+                        <p>Journal Articles</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- --- STATS DASHBOARD BAR --- -->
-        <div class="stats-bar-wrapper">
-            <div class="stats-bar">
-                <div class="stat-item">
-                    <h3>25+</h3>
-                    <p>Years Experience</p>
-                </div>
-                <div class="stat-item">
-                    <h3>153</h3>
-                    <p>Major Projects ('21-'25)</p>
-                </div>
-                <div class="stat-item">
-                    <h3>9</h3>
-                    <p>Valuation Books</p>
-                </div>
-                <div class="stat-item">
-                    <h3>70+</h3>
-                    <p>Conferences</p>
-                </div>
-                <div class="stat-item">
-                    <h3>10</h3>
-                    <p>Journal Articles</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- --- ABOUT / BIOGRAPHY SECTION --- -->
-        <section id="about" class="container">
-            <div class="about-grid">
-                <div class="about-content">
-                    <h2 class="section-title" style="text-align: left;">Professional Profile</h2>
-                    <p>
-                        <strong>Mr. Arun Kanagasabapathy</strong> is a highly accomplished Civil Engineer and Real
-                        Estate Valuer with a career spanning more than 25 years. Representing a standard of professional
-                        rigor, his practice integrates core civil engineering diagnostics with high-tier financial-legal
-                        valuations.
-                    </p>
-                    <p>
-                        He is a Registered Valuer under the Central Board of Direct Taxes (CBDT) for wealth tax
-                        evaluation and assets coming under the scrutiny of the Black Money Act. Additionally, he holds
-                        certifications under the Companies Act 2013, enabling corporate asset valuation.
-                    </p>
-                    <p>
-                        An active academic and educator in the field, Mr. Arun has co-authored 9 authoritative books on
-                        practical valuation and has published 10 technical papers in the prestigious <em>Indian
-                            Valuer</em> journal. His expertise is widely sought after in national forums, having
-                        attended over 70 professional conferences in India and key international conventions, including
-                        the Landmark Valuation Summit in Bangkok.
-                    </p>
-                </div>
-                <div class="certifications-card">
-                    <h4>Academic & Registrations</h4>
-
-                    <div class="cert-item">
-                        <div class="cert-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                                <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
-                            </svg>
-                        </div>
-                        <div class="cert-info">
-                            <h5>Academic Degrees</h5>
-                            <p>Bachelor of Civil Engineering & M.Sc. in Real Estate Valuation</p>
-                        </div>
+        <!-- ── ABOUT / BIOGRAPHY ── -->
+        <section id="about" class="section">
+            <div class="section-inner">
+                <div class="about-layout">
+                    <div class="about-prose animate-in">
+                        <div class="section-label">Who We Are</div>
+                        <h2 class="section-heading">Professional Profile</h2>
+                        <p>
+                            <strong>Mr. Arun Kanagasabapathy</strong> is a highly accomplished Civil Engineer and Real
+                            Estate Valuer with a career spanning more than 25 years. Representing a standard of
+                            professional rigor, his practice integrates core civil engineering diagnostics with
+                            high-tier financial-legal valuations.
+                        </p>
+                        <p>
+                            He is a Registered Valuer under the Central Board of Direct Taxes (CBDT) for wealth tax
+                            evaluation and assets coming under the scrutiny of the Black Money Act. Additionally, he
+                            holds certifications under the Companies Act 2013, enabling corporate asset valuation.
+                        </p>
+                        <p>
+                            An active academic and educator in the field, Mr. Arun has co-authored 9 authoritative books
+                            on practical valuation and has published 10 technical papers in the prestigious <em>Indian
+                                Valuer</em> journal. His expertise is widely sought after in national forums, having
+                            attended over 70 professional conferences in India and key international conventions,
+                            including the Landmark Valuation Summit in Bangkok.
+                        </p>
                     </div>
-
-                    <div class="cert-item">
-                        <div class="cert-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                                <polyline points="10 9 9 9 8 9"></polyline>
-                            </svg>
+                    <div class="credentials-panel animate-in">
+                        <h4>Academic & Registrations</h4>
+                        <div class="credential-row">
+                            <div class="cred-dot">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                    <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+                                </svg>
+                            </div>
+                            <div class="cred-text">
+                                <h5>Academic Degrees</h5>
+                                <p>Bachelor of Civil Engineering & M.Sc. in Real Estate Valuation</p>
+                            </div>
                         </div>
-                        <div class="cert-info">
-                            <h5>CBDT Registered Valuer</h5>
-                            <p>Wealth Tax Act, Black Money Act (Central Board of Direct Taxes)</p>
+                        <div class="credential-row">
+                            <div class="cred-dot">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                            </div>
+                            <div class="cred-text">
+                                <h5>CBDT Registered Valuer</h5>
+                                <p>Wealth Tax Act, Black Money Act (Central Board of Direct Taxes)</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="cert-item">
-                        <div class="cert-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
-                                <line x1="9" y1="22" x2="9" y2="16"></line>
-                                <line x1="15" y1="22" x2="15" y2="16"></line>
-                                <line x1="9" y1="16" x2="15" y2="16"></line>
-                                <path d="M8 6h2v2H8V6zm0 4h2v2H8v-2zm6-4h2v2h-2V6zm0 4h2v2h-2v-2z"></path>
-                            </svg>
+                        <div class="credential-row">
+                            <div class="cred-dot">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                                    <line x1="9" y1="22" x2="9" y2="16"></line>
+                                    <line x1="15" y1="22" x2="15" y2="16"></line>
+                                    <line x1="9" y1="16" x2="15" y2="16"></line>
+                                    <path d="M8 6h2v2H8V6zm0 4h2v2H8v-2zm6-4h2v2h-2V6zm0 4h2v2h-2v-2z"></path>
+                                </svg>
+                            </div>
+                            <div class="cred-text">
+                                <h5>Corporate Registrar</h5>
+                                <p>Registered Valuer under Section 247 of the Companies Act, 2013</p>
+                            </div>
                         </div>
-                        <div class="cert-info">
-                            <h5>Corporate Registrar</h5>
-                            <p>Registered Valuer under Section 247 of the Companies Act, 2013</p>
-                        </div>
-                    </div>
-
-                    <div class="cert-item">
-                        <div class="cert-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <polyline points="3 7 12 2 21 7"></polyline>
-                                <line x1="4" y1="22" x2="20" y2="22"></line>
-                                <line x1="6" y1="7" x2="6" y2="22"></line>
-                                <line x1="10" y1="7" x2="10" y2="22"></line>
-                                <line x1="14" y1="7" x2="14" y2="22"></line>
-                                <line x1="18" y1="7" x2="18" y2="22"></line>
-                            </svg>
-                        </div>
-                        <div class="cert-info">
-                            <h5>Chartered & Professional Engineer</h5>
-                            <p>Institution of Valuers (F.I.V.) & Institution of Engineers (M.I.E.)</p>
+                        <div class="credential-row">
+                            <div class="cred-dot">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="3 7 12 2 21 7"></polyline>
+                                    <line x1="4" y1="22" x2="20" y2="22"></line>
+                                    <line x1="6" y1="7" x2="6" y2="22"></line>
+                                    <line x1="10" y1="7" x2="10" y2="22"></line>
+                                    <line x1="14" y1="7" x2="14" y2="22"></line>
+                                    <line x1="18" y1="7" x2="18" y2="22"></line>
+                                </svg>
+                            </div>
+                            <div class="cred-text">
+                                <h5>Chartered & Professional Engineer</h5>
+                                <p>Institution of Valuers (F.I.V.) & Institution of Engineers (M.I.E.)</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- --- JOURNEY TIMELINE SECTION --- -->
-        <section id="journey" class="timeline-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Professional Journey</h2>
-                    <p class="section-subtitle">25+ Years of specialized development in construction and valuation
+        <!-- ── JOURNEY — HORIZONTAL TIMELINE ── -->
+        <section id="journey" class="section section-alt">
+            <div class="section-inner">
+                <div class="text-center" style="margin-bottom: 10px;">
+                    <div class="section-label">Career Path</div>
+                    <h2 class="section-heading">Professional Journey</h2>
+                    <p class="section-desc mx-auto">25+ Years of specialized development in construction and valuation
                         engineering</p>
                 </div>
-
-                <div class="journey-horizontal">
-
-                    <div class="journey-step">
-                        <div class="journey-step-badge">01</div>
-                        <div class="journey-step-content">
-                            <span class="journey-step-year">1997 - 1998</span>
-                            <h4>Civil Construction Engineer</h4>
-                            <p><strong>A & N Constructions (1 Year)</strong><br>Supervision of civil structures,
-                                residential units, and field inspections, building a strong foundation in structural
-                                integrity.</p>
+                <div class="journey-timeline">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-items">
+                        <div class="timeline-item animate-in">
+                            <div class="timeline-node">01</div>
+                            <div class="timeline-card">
+                                <div class="card-year">2001 – 2002</div>
+                                <h3 class="card-title">Civil Construction Engineer</h3>
+                                <h4 class="card-company">A & N Constructions (1 Year)</h4>
+                                <p class="card-desc">Supervision of civil structures, residential units, and field inspections, building a strong foundation in structural integrity.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item animate-in">
+                            <div class="timeline-node active">02</div>
+                            <div class="timeline-card">
+                                <div class="card-year">2002 – 2005</div>
+                                <h3 class="card-title">Civil & Structural Engineer</h3>
+                                <h4 class="card-company">Bumi Resources (Singapore Based) (3 Years)</h4>
+                                <p class="card-desc">Entrusted with key structural roles in the landmark Delhi Metro Rail Corporation (DMRC) project.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item animate-in">
+                            <div class="timeline-node">03</div>
+                            <div class="timeline-card">
+                                <div class="card-year">2001 – Present</div>
+                                <h3 class="card-title">Practicing Registered Valuer</h3>
+                                <h4 class="card-company">Private Advisory & Valuation Chambers (25 Years)</h4>
+                                <p class="card-desc">Offering professional consultancies to national banks, government corporations, tax departments, and legal entities in property valuation.</p>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="journey-step">
-                        <div class="journey-step-badge">02</div>
-                        <div class="journey-step-content">
-                            <span class="journey-step-year">1998 - 2001</span>
-                            <h4>Civil & Structural Engineer</h4>
-                            <p><strong>Bumi Resources (Singapore Based) (3 Years)</strong><br>Entrusted with key
-                                structural roles in the landmark Delhi Metro Rail Corporation (DMRC) project, executing
-                                complex urban transit layouts.</p>
-                        </div>
-                    </div>
-
-                    <div class="journey-step">
-                        <div class="journey-step-badge">03</div>
-                        <div class="journey-step-content">
-                            <span class="journey-step-year">2001 - Present</span>
-                            <h4>Practicing Registered Valuer</h4>
-                            <p><strong>Private Advisory & Valuation Chambers (25 Years)</strong><br>Offering
-                                professional consultancies to national banks, government corporations, tax departments,
-                                and legal entities in property valuation.</p>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- --- SERVICES SECTION --- -->
-        <section id="services" class="container">
-            <div class="section-header">
-                <h2 class="section-title">Valuation & Engineering Services</h2>
-                <p class="section-subtitle">Comprehensive corporate, tax, and legal valuations compliant with national
-                    regulatory statutes</p>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <div>
-                        <span class="service-icon">
+        <!-- ── SERVICES ── -->
+        <section id="services" class="section">
+            <div class="section-inner">
+                <div class="text-center" style="margin-bottom: 10px;">
+                    <div class="section-label">What We Offer</div>
+                    <h2 class="section-heading">Valuation & Engineering Services</h2>
+                    <p class="section-desc mx-auto">Comprehensive corporate, tax, and legal valuations compliant with
+                        national regulatory statutes</p>
+                </div>
+                <div class="services-mosaic">
+                    <div class="svc-card animate-in">
+                        <div class="svc-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
                                 stroke-linejoin="round">
                                 <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
                                 <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                             </svg>
-                        </span>
+                        </div>
                         <h4>Capital Gains Valuation</h4>
                         <p>Determining Fair Market Value as of 2001 (and subsequent indexation) for tax computations
                             under Section 50C/50CA of the Income Tax Act.</p>
                     </div>
-                </div>
-
-                <div class="service-card">
-                    <div>
-                        <span class="service-icon">
+                    <div class="svc-card animate-in">
+                        <div class="svc-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
                                 stroke-linejoin="round">
                                 <line x1="12" y1="3" x2="12" y2="21"></line>
@@ -2153,16 +2330,13 @@
                                 <path d="M18 7l-2 9h4l-2-9"></path>
                                 <path d="M4 21h16"></path>
                             </svg>
-                        </span>
+                        </div>
                         <h4>Direct & Indirect Taxes</h4>
                         <p>Filing certified assessments under Wealth Tax Act, Gift Tax Act, and Wealth Disclosure under
                             the Black Money Act.</p>
                     </div>
-                </div>
-
-                <div class="service-card">
-                    <div>
-                        <span class="service-icon">
+                    <div class="svc-card animate-in">
+                        <div class="svc-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
                                 stroke-linejoin="round">
                                 <polyline points="3 7 12 2 21 7"></polyline>
@@ -2172,16 +2346,13 @@
                                 <line x1="14" y1="7" x2="14" y2="22"></line>
                                 <line x1="18" y1="7" x2="18" y2="22"></line>
                             </svg>
-                        </span>
+                        </div>
                         <h4>Court Cases & Litigations</h4>
                         <p>Providing expert witness valuations, partition suit audits, rental fixation reviews, and
                             dispute resolutions in judicial hearings.</p>
                     </div>
-                </div>
-
-                <div class="service-card">
-                    <div>
-                        <span class="service-icon">
+                    <div class="svc-card animate-in">
+                        <div class="svc-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
                                 stroke-linejoin="round">
                                 <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
@@ -2190,16 +2361,13 @@
                                 <line x1="9" y1="16" x2="15" y2="16"></line>
                                 <path d="M8 6h2v2H8V6zm0 4h2v2H8v-2zm6-4h2v2h-2V6zm0 4h2v2h-2v-2z"></path>
                             </svg>
-                        </span>
+                        </div>
                         <h4>Companies Act Valuation</h4>
                         <p>Corporate asset estimations, mergers, balance sheet assessments, liquidations, and financial
                             valuations under Companies Act 2013.</p>
                     </div>
-                </div>
-
-                <div class="service-card">
-                    <div>
-                        <span class="service-icon">
+                    <div class="svc-card animate-in">
+                        <div class="svc-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
                                 stroke-linejoin="round">
                                 <path d="M3 22V2"></path>
@@ -2208,23 +2376,20 @@
                                 <path d="M21 5v3"></path>
                                 <path d="m13 18 8-8"></path>
                             </svg>
-                        </span>
+                        </div>
                         <h4>Structural Estimation</h4>
                         <p>Quantity surveying, cost estimation, structural life-cycle inspections, and structural audits
                             for stability certificates.</p>
                     </div>
-                </div>
-
-                <div class="service-card">
-                    <div>
-                        <span class="service-icon">
+                    <div class="svc-card animate-in">
+                        <div class="svc-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
                                 stroke-linejoin="round">
                                 <rect x="3" y="10" width="18" height="11" rx="2"></rect>
                                 <path d="M12 2L2 7h20L12 2z"></path>
                                 <path d="M6 21v-7h3v7M15 21v-7h3v7"></path>
                             </svg>
-                        </span>
+                        </div>
                         <h4>Banking Collaterals</h4>
                         <p>Providing formal credit reports and security evaluation certificates for prime nationalized
                             and private bank lenders.</p>
@@ -2233,304 +2398,285 @@
             </div>
         </section>
 
-        <!-- --- BANK EMPANELMENT SECTION --- -->
-        <section id="banks" class="banks-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Empanelled Banks</h2>
-                    <p class="section-subtitle">Officially trusted by major banking institutions and financial lenders
-                        for security valuation</p>
+        <!-- ── EMPANELLED BANKS — MARQUEE ── -->
+        <section id="banks" class="section section-alt">
+            <div class="section-inner">
+                <div class="text-center" style="margin-bottom: 10px;">
+                    <div class="section-label">Trusted By</div>
+                    <h2 class="section-heading">Empanelled Banks</h2>
+                    <p class="section-desc mx-auto">Officially trusted by major banking institutions and financial
+                        lenders for security valuation</p>
                 </div>
-
-                <div class="banks-grid">
-
-                    <!-- Canara Bank -->
-                    <div class="bank-card">
-                        <img src="bank logo/CANBK.png" alt="Canara Bank Logo" class="bank-logo-img">
-                        <div>
-                            <div class="bank-name">Canara Bank</div>
-                            <div class="bank-subname">Nationalized Bank</div>
+                <div class="banks-track-wrapper">
+                    <div class="banks-track" id="banksTrack">
+                        <!-- Set 1 -->
+                        <div class="bank-pill"><img src="bank logo/CANBK.png" alt="Canara Bank Logo">
+                            <div class="bank-pill-text"><strong>Canara Bank</strong><span>Nationalized Bank</span></div>
+                        </div>
+                        <div class="bank-pill"><img src="bank logo/CUB.png" alt="City Union Bank Logo">
+                            <div class="bank-pill-text"><strong>City Union Bank</strong><span>Scheduled Bank</span>
+                            </div>
+                        </div>
+                        <div class="bank-pill"><img src="bank logo/SBI.png" alt="State Bank of India Logo">
+                            <div class="bank-pill-text"><strong>State Bank of India</strong><span>STATE / SBI</span>
+                            </div>
+                        </div>
+                        <div class="bank-pill"><img src="bank logo/IOB.png" alt="Indian Overseas Bank Logo">
+                            <div class="bank-pill-text"><strong>Indian Overseas Bank</strong><span>IOB</span></div>
+                        </div>
+                        <div class="bank-pill"><img src="bank logo/Bank of india logo.png" alt="Bank of India Logo">
+                            <div class="bank-pill-text"><strong>Bank of India</strong><span>BOI</span></div>
+                        </div>
+                        <div class="bank-pill"><img src="bank logo/LIC1.png" alt="LIC Housing Finance Logo">
+                            <div class="bank-pill-text"><strong>LIC Housing Finance</strong><span>LIC / LICHFL</span>
+                            </div>
+                        </div>
+                        <div class="bank-pill"><img src="bank logo/REPCO1.png" alt="Repco Bank Logo">
+                            <div class="bank-pill-text"><strong>Repco Bank</strong><span>REPCO</span></div>
+                        </div>
+                        <div class="bank-pill"><img src="bank logo/UNIONBANK.png" alt="United Bank of India Logo">
+                            <div class="bank-pill-text"><strong>United Bank of India</strong><span>UBI</span></div>
+                        </div>
+                        <div class="bank-pill"><img src="bank logo/SUNDARMF.png" alt="Sundaram Finance Logo">
+                            <div class="bank-pill-text"><strong>Sundaram Finance</strong><span>SUNDARAM</span></div>
+                        </div>
+                        <div class="bank-pill"><img src="bank logo/PNB1.png" alt="Punjab National Bank Logo">
+                            <div class="bank-pill-text"><strong>Punjab National Bank</strong><span>PNB</span></div>
+                        </div>
+                        <div class="bank-pill"><img src="bank logo/CENTRALBANK2.png" alt="Central Bank of India Logo">
+                            <div class="bank-pill-text"><strong>Central Bank of India</strong><span>CBI</span></div>
+                        </div>
+                        <!-- Set 2 (duplicate for seamless loop) -->
+                        <div class="bank-pill"><img src="bank logo/CANBK.png" alt="Canara Bank Logo">
+                            <div class="bank-pill-text"><strong>Canara Bank</strong><span>Nationalized Bank</span></div>
+                        </div>
+                        <div class="bank-pill"><img src="bank logo/CUB.png" alt="City Union Bank Logo">
+                            <div class="bank-pill-text"><strong>City Union Bank</strong><span>Scheduled Bank</span>
+                            </div>
+                        </div>
+                        <div class="bank-pill"><img src="bank logo/SBI.png" alt="State Bank of India Logo">
+                            <div class="bank-pill-text"><strong>State Bank of India</strong><span>STATE / SBI</span>
+                            </div>
+                        </div>
+                        <div class="bank-pill"><img src="bank logo/IOB.png" alt="Indian Overseas Bank Logo">
+                            <div class="bank-pill-text"><strong>Indian Overseas Bank</strong><span>IOB</span></div>
+                        </div>
+                        <div class="bank-pill"><img src="bank logo/Bank of india logo.png" alt="Bank of India Logo">
+                            <div class="bank-pill-text"><strong>Bank of India</strong><span>BOI</span></div>
+                        </div>
+                        <div class="bank-pill"><img src="bank logo/LIC1.png" alt="LIC Housing Finance Logo">
+                            <div class="bank-pill-text"><strong>LIC Housing Finance</strong><span>LIC / LICHFL</span>
+                            </div>
+                        </div>
+                        <div class="bank-pill"><img src="bank logo/REPCO1.png" alt="Repco Bank Logo">
+                            <div class="bank-pill-text"><strong>Repco Bank</strong><span>REPCO</span></div>
+                        </div>
+                        <div class="bank-pill"><img src="bank logo/UNIONBANK.png" alt="United Bank of India Logo">
+                            <div class="bank-pill-text"><strong>United Bank of India</strong><span>UBI</span></div>
+                        </div>
+                        <div class="bank-pill"><img src="bank logo/SUNDARMF.png" alt="Sundaram Finance Logo">
+                            <div class="bank-pill-text"><strong>Sundaram Finance</strong><span>SUNDARAM</span></div>
+                        </div>
+                        <div class="bank-pill"><img src="bank logo/PNB1.png" alt="Punjab National Bank Logo">
+                            <div class="bank-pill-text"><strong>Punjab National Bank</strong><span>PNB</span></div>
+                        </div>
+                        <div class="bank-pill"><img src="bank logo/CENTRALBANK2.png" alt="Central Bank of India Logo">
+                            <div class="bank-pill-text"><strong>Central Bank of India</strong><span>CBI</span></div>
                         </div>
                     </div>
-
-                    <!-- CUB -->
-                    <div class="bank-card">
-                        <img src="bank logo/CUB.png" alt="City Union Bank Logo" class="bank-logo-img">
-                        <div>
-                            <div class="bank-name">City Union Bank</div>
-                            <div class="bank-subname">Scheduled Bank</div>
-                        </div>
-                    </div>
-
-                    <!-- STATE BANK OF INDIA -->
-                    <div class="bank-card">
-                        <img src="bank logo/SBI.png" alt="State Bank of India Logo" class="bank-logo-img">
-                        <div>
-                            <div class="bank-name">State Bank of India</div>
-                            <div class="bank-subname">STATE / SBI</div>
-                        </div>
-                    </div>
-
-                    <!-- IOB -->
-                    <div class="bank-card">
-                        <img src="bank logo/IOB.png" alt="Indian Overseas Bank Logo" class="bank-logo-img">
-                        <div>
-                            <div class="bank-name">Indian Overseas Bank</div>
-                            <div class="bank-subname">IOB</div>
-                        </div>
-                    </div>
-
-                    <!-- BANK OF INDIA -->
-                    <div class="bank-card">
-                        <img src="bank logo/Bank of india logo.png" alt="Bank of India Logo" class="bank-logo-img">
-                        <div>
-                            <div class="bank-name">Bank of India</div>
-                            <div class="bank-subname">BOI</div>
-                        </div>
-                    </div>
-
-                    <!-- LIC -->
-                    <div class="bank-card">
-                        <img src="bank logo/LIC1.png" alt="LIC Housing Finance Logo" class="bank-logo-img">
-                        <div>
-                            <div class="bank-name">LIC Housing Finance</div>
-                            <div class="bank-subname">LIC / LICHFL</div>
-                        </div>
-                    </div>
-
-                    <!-- Repco Bank -->
-                    <div class="bank-card">
-                        <img src="bank logo/REPCO1.png" alt="Repco Bank Logo" class="bank-logo-img">
-                        <div>
-                            <div class="bank-name">Repco Bank</div>
-                            <div class="bank-subname">REPCO</div>
-                        </div>
-                    </div>
-
-                    <!-- United Bank of India -->
-                    <div class="bank-card">
-                        <img src="bank logo/UNIONBANK.png" alt="United Bank of India Logo" class="bank-logo-img">
-                        <div>
-                            <div class="bank-name">United Bank of India</div>
-                            <div class="bank-subname">UBI</div>
-                        </div>
-                    </div>
-
-                    <!-- Sundaram Finance -->
-                    <div class="bank-card">
-                        <img src="bank logo/SUNDARMF.png" alt="Sundaram Finance Logo" class="bank-logo-img">
-                        <div>
-                            <div class="bank-name">Sundaram Finance</div>
-                            <div class="bank-subname">SUNDARAM</div>
-                        </div>
-                    </div>
-
-                    <!-- PNB -->
-                    <div class="bank-card">
-                        <img src="bank logo/PNB1.png" alt="Punjab National Bank Logo" class="bank-logo-img">
-                        <div>
-                            <div class="bank-name">Punjab National Bank</div>
-                            <div class="bank-subname">PNB</div>
-                        </div>
-                    </div>
-
-                    <!-- CBI -->
-                    <div class="bank-card">
-                        <img src="bank logo/CENTRALBANK2.png" alt="Central Bank of India Logo" class="bank-logo-img">
-                        <div>
-                            <div class="bank-name">Central Bank of India</div>
-                            <div class="bank-subname">CBI</div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- --- BOOKS AND PUBLICATIONS CALL OUT --- -->
-        <section class="publications-section">
-            <div class="container">
-                <div class="publications-wrapper">
-                    <div class="publications-content">
-                        <h2>Co-authored Books & Publications</h2>
-                        <p>
+        <!-- ── WORKING STAFFS ── -->
+        <section id="staffs" class="section">
+            <div class="section-inner">
+                <div class="text-center" style="margin-bottom: 10px;">
+                    <div class="section-label">Team Members</div>
+                    <h2 class="section-heading">Working Staffs</h2>
+                    <p class="section-desc mx-auto">Our dedicated team of valuation engineers, structural consultants, and liaison officers</p>
+                </div>
+                
+                <div class="staff-grid">
+                    <!-- Staff 1 -->
+                    <div class="staff-card animate-in">
+                        <div class="staff-img-wrap">
+                            <img src="images/staff_male_senior.png" alt="K. Vignesh Portrait">
+                        </div>
+                        <div class="staff-info">
+                            <h3>K. Vignesh</h3>
+                            <span class="staff-role">Senior Valuation Engineer</span>
+                            <p class="staff-edu">B.E. Civil Engineering</p>
+                            <p class="staff-bio">Over 8 years of experience in structural stability auditing, detailed quantity surveying, and commercial property assessment.</p>
+                        </div>
+                    </div>
+
+                    <!-- Staff 2 -->
+                    <div class="staff-card animate-in">
+                        <div class="staff-img-wrap">
+                            <img src="images/staff_female_structural.png" alt="S. Abinaya Portrait">
+                        </div>
+                        <div class="staff-info">
+                            <h3>S. Abinaya</h3>
+                            <span class="staff-role">Technical Engineer & CAD Specialist</span>
+                            <p class="staff-edu">M.E. Structural Engineering</p>
+                            <p class="staff-bio">Specializes in digital drafting, load analyses, and structural stability certifications for high-rise residential properties.</p>
+                        </div>
+                    </div>
+
+                    <!-- Staff 3 -->
+                    <div class="staff-card animate-in">
+                        <div class="staff-img-wrap">
+                            <img src="images/staff_male_coord.png" alt="R. Anand Portrait">
+                        </div>
+                        <div class="staff-info">
+                            <h3>R. Anand</h3>
+                            <span class="staff-role">Operations & Bank Liaison Officer</span>
+                            <p class="staff-edu">B.Com. (Operations Management)</p>
+                            <p class="staff-bio">Coordinates bank empanelment documentation, schedules site inspections, and handles official corporate valuations filing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── PUBLICATIONS — DARK SHOWCASE ── -->
+        <section class="section section-dark">
+            <div class="section-inner">
+                <div class="pub-grid">
+                    <div>
+                        <div class="section-label">Published Works</div>
+                        <h2 class="section-heading">Co-authored Books & Publications</h2>
+                        <p class="section-desc">
                             Highly committed to raising professional benchmarks in valuation, co-authoring 9
                             industry-standard textbooks and publishing 10 articles in the Indian Valuer Journal. Click
                             below to view the covers and details of the co-authored library collection.
                         </p>
-                        <div class="publications-stats">
-                            <div class="pub-stat-item">
+                        <div class="pub-stats-row">
+                            <div class="pub-stat">
                                 <h4>9</h4>
                                 <p>Valuation Books</p>
                             </div>
-                            <div class="pub-stat-item">
+                            <div class="pub-stat">
                                 <h4>10</h4>
                                 <p>Journal Papers</p>
                             </div>
                         </div>
-                        <a href="#books" class="btn">Explore Book</a>
+                        <a href="#books" class="btn-primary">Explore Book</a>
                     </div>
-
-                    <div class="publications-graphic">
-                        <div class="books-carousel-viewport">
-                            <div class="books-carousel-track" id="carouselTrack">
-                                <div class="carousel-slide-item"><img src="book images/Book 1.jpg"
-                                        alt="Valuation Book Vol. 2"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 2.jpg"
-                                        alt="Valuation Book Vol. 3"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 3.jpg"
-                                        alt="Valuation Book Vol. 4"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 4.jpg"
-                                        alt="Valuation Book Vol. 5"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 5.jpg"
-                                        alt="Valuation Book Vol. 6"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 6.jpg"
-                                        alt="Valuation Book Vol. 7"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 7.jpg"
-                                        alt="Valuation Book Vol. 8"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 8.jpg"
-                                        alt="Valuation Book Vol. 12"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 9.jpg"
-                                        alt="Valuation Book Vol. 14"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 10.jpg"
-                                        alt="Valuation Book Vol. 16"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 11.jpg"
-                                        alt="Valuation Book Vol. 19"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 12.jpg"
-                                        alt="Valuation Book Vol. 20"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 13.jpg"
-                                        alt="Valuation Book Vol. 22"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 14.jpg"
-                                        alt="Valuation Book Vol. 24"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 15.jpg"
-                                        alt="Valuation Book Vol. 25"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 16.jpg"
-                                        alt="Valuation Book Vol. 26"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 17.jpg"
-                                        alt="Valuation Book Vol. 27"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 18.jpg"
-                                        alt="Valuation Book Vol. 28"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 19.jpg"
-                                        alt="Valuation Book Vol. 29"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 20.jpg"
-                                        alt="Valuation Book Vol. 30"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 21.jpg"
-                                        alt="Valuation Book Vol. 31"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 22.jpg"
-                                        alt="Valuation Book Vol. 32"></div>
-                                <!-- Clones of the first 2 items to make slide seamless and infinite -->
-                                <div class="carousel-slide-item"><img src="book images/Book 1.jpg"
-                                        alt="Valuation Book Vol. 2"></div>
-                                <div class="carousel-slide-item"><img src="book images/Book 2.jpg"
-                                        alt="Valuation Book Vol. 3"></div>
-                            </div>
-                            <div
-                                style="text-align:center; font-family:'Outfit',sans-serif; color:var(--accent); font-weight:600; font-size:0.95rem; margin-top:20px;">
-                                Library Showcase (22 Books)
-                            </div>
+                    <div>
+                        <div class="book-fan">
+                            <div class="book-fan-item"><img src="book images/Book 1.jpg" alt="Valuation Book 1"></div>
+                            <div class="book-fan-item"><img src="book images/Book 3.jpg" alt="Valuation Book 3"></div>
+                            <div class="book-fan-item"><img src="book images/Book 5.jpg" alt="Valuation Book 5"></div>
+                            <div class="book-fan-item"><img src="book images/Book 8.jpg" alt="Valuation Book 8"></div>
+                            <div class="book-fan-item"><img src="book images/Book 10.jpg" alt="Valuation Book 10"></div>
                         </div>
+                        <div class="book-fan-label">Library Showcase (22 Books)</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- --- CONTACT SECTION --- -->
-        <section id="contact" class="container">
-            <div class="section-header">
-                <h2 class="section-title">Connect With Us</h2>
-                <p class="section-subtitle">Get in touch for professional asset assessment consultancies, corporate
-                    valuations, capital tax evaluations, stability certificates, or seminar invitations.</p>
-            </div>
-
-            <div class="contact-grid-layout">
-                <!-- Google Maps Embed -->
-                <div class="contact-map-card">
-                    <iframe
-                        src="https://maps.google.com/maps?q=6,%20Reynolds%20Rd,%20Cantonment,%20Tiruchirappalli,%20Tamil+Nadu+620001,%20India&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                        allowfullscreen="" loading="lazy"></iframe>
+        <!-- ── CONTACT ── -->
+        <section id="contact" class="section">
+            <div class="section-inner">
+                <div class="text-center" style="margin-bottom: 10px;">
+                    <div class="section-label">Get In Touch</div>
+                    <h2 class="section-heading">Connect With Us</h2>
+                    <p class="section-desc mx-auto">Get in touch for professional asset assessment consultancies,
+                        corporate valuations, capital tax evaluations, stability certificates, or seminar invitations.
+                    </p>
                 </div>
-
-                <!-- Contact Information stacked vertically -->
-                <div class="contact-info-column">
-                    <a href="https://www.google.com/maps/place/6,+Reynolds+Rd,+Cantonment,+Tiruchirappalli,+Tamil+Nadu+620001,+India/@10.807455,78.681843,16z/data=!4m6!3m5!1s0x3baaf50d0ef9096d:0x60186a6bbc6d905e!8m2!3d10.8074551!4d78.6818434!16s%2Fg%2F12hn_6ffx?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D"
-                        target="_blank" class="contact-card-item-vertical">
-                        <div class="contact-card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Office Chambers</h4>
-                            <p>No. 1, Prestige Flats, 6, Reynolds Road,<br>Cantonment, Tiruchirappalli, Tamil Nadu - 620
-                                001</p>
-                        </div>
-                    </a>
-
-                    <a href="tel:+919443043426" class="contact-card-item-vertical">
-                        <div class="contact-card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path
-                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                                </path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Direct Helpline</h4>
-                            <p>+91 94430 43426</p>
-                        </div>
-                    </a>
-
-                    <a href="mailto:bkvaluer@gmail.com" class="contact-card-item-vertical">
-                        <div class="contact-card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                                </path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Official Email</h4>
-                            <p>bkvaluer@gmail.com</p>
-                        </div>
-                    </a>
+                <div class="contact-layout">
+                    <div class="contact-map-wrap">
+                        <iframe
+                            src="https://maps.google.com/maps?q=6,%20Reynolds%20Rd,%20Cantonment,%20Tiruchirappalli,%20Tamil+Nadu+620001,%20India&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                            allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="contact-cards-stack">
+                        <a href="https://www.google.com/maps/place/6,+Reynolds+Rd,+Cantonment,+Tiruchirappalli,+Tamil+Nadu+620001,+India/@10.807455,78.681843,16z/data=!4m6!3m5!1s0x3baaf50d0ef9096d:0x60186a6bbc6d905e!8m2!3d10.8074551!4d78.6818434!16s%2Fg%2F12hn_6ffx?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank" class="contact-card-link">
+                            <div class="contact-icon-circle">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Office Chambers</h4>
+                                <p>No. 1, Prestige Flats, 6, Reynolds Road,<br>Cantonment, Tiruchirappalli, Tamil Nadu -
+                                    620 001</p>
+                            </div>
+                        </a>
+                        <a href="tel:+919443379781" class="contact-card-link">
+                            <div class="contact-icon-circle">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Direct Helpline</h4>
+                                <p>+91 94433 79781</p>
+                            </div>
+                        </a>
+                        <a href="mailto:everarun@yahoo.com" class="contact-card-link">
+                            <div class="contact-icon-circle">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                    </path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Official Email</h4>
+                                <p>everarun@yahoo.com</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- --- FOOTER --- -->
+        <!-- ── FOOTER ── -->
         <footer>
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h4>ARUN KANAGASABAPATHY</h4>
-                    <p>Registered Valuer (CBDT & Companies Act 2013) & Chartered Engineer. Providing high-standard
-                        evaluations conforming to legislative codes across India.</p>
+            <div class="footer-inner">
+                <div class="footer-top">
+                    <div class="footer-brand">
+                        <h4>ARUN KANAGASABAPATHY</h4>
+                        <p>Registered Valuer (CBDT & Companies Act 2013) & Chartered Engineer. Providing high-standard
+                            evaluations conforming to legislative codes across India.</p>
+                    </div>
+                    <div class="footer-nav">
+                        <ul>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#journey">Journey</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#banks">Banks</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#journey">Journey</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#banks">Banks</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Arun Kanagasabapathy. All rights reserved.</p>
+                    <p>Designed for absolute cross-platform responsiveness & high accessibility.</p>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Arun Kanagasabapathy. All rights reserved.</p>
-                <p>Designed for absolute cross-platform responsiveness & high accessibility.</p>
             </div>
         </footer>
 
+        <!-- ── SCRIPTS ── -->
 
     </div>
 
     <!-- --- BOOKS GALLERY VIEW --- -->
     <div id="books-view" style="display: none;">
-        <!-- --- HEADER & NAVIGATION --- -->
+        <!-- ── HEADER ── -->
         <header>
             <div class="nav-container">
                 <a href="#home" class="brand">
@@ -2544,448 +2690,299 @@
             </div>
         </header>
 
-        <!-- --- HERO BANNER --- -->
+        <!-- ── HERO ── -->
         <section class="library-hero">
             <h2>Co-authored Valuation Library</h2>
             <p>A comprehensive gallery showcasing co-authored book publications and technical volumes related to real
                 estate appraisal and practical valuation in India.</p>
         </section>
 
-        <!-- --- GALLERY SECTION --- -->
+        <!-- ── GALLERY ── -->
         <section class="gallery-container">
             <div class="gallery-intro">
                 <p>Click on any book cover to zoom and inspect in detail.</p>
-                <div class="pricing-summary"
-                    style="margin-top: 20px; font-size: 1.2rem; color: var(--primary-dark); font-weight: 700;">
+                <div class="pricing-summary">
                     <p>Total - 22 Volumes - Rs. 18,150/-</p>
-                    <p style="color: var(--accent); margin-top: 8px; font-size: 1.1rem;">Soft copy in Pendrive including
-                        postages, etc., - Rs. 18,550/-</p>
+                    <p class="alt-price">Soft copy in Pendrive including postages, etc., - Rs. 18,550/-</p>
                 </div>
             </div>
 
             <div class="library-grid">
-                <!-- Book 1 -->
                 <div class="book-card" onclick="openLightbox(1)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 1.jpg" alt="Book 1 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 1.jpg" alt="Book 1 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 02 - General topics</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            500/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 02 - General topics</h3><span
+                            class="book-price">Rs. 500/-</span>
                     </div>
                 </div>
-
-                <!-- Book 2 -->
                 <div class="book-card" onclick="openLightbox(2)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 2.jpg" alt="Book 2 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 2.jpg" alt="Book 2 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 03 - General topics</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            500/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 03 - General topics</h3><span
+                            class="book-price">Rs. 500/-</span>
                     </div>
                 </div>
-
-                <!-- Book 3 -->
                 <div class="book-card" onclick="openLightbox(3)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 3.jpg" alt="Book 3 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 3.jpg" alt="Book 3 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 04 - General topics</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            500/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 04 - General topics</h3><span
+                            class="book-price">Rs. 500/-</span>
                     </div>
                 </div>
-
-                <!-- Book 4 -->
                 <div class="book-card" onclick="openLightbox(4)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 4.jpg" alt="Book 4 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 4.jpg" alt="Book 4 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 05 - General topics</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            500/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 05 - General topics</h3><span
+                            class="book-price">Rs. 500/-</span>
                     </div>
                 </div>
-
-                <!-- Book 5 -->
                 <div class="book-card" onclick="openLightbox(5)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 5.jpg" alt="Book 5 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 5.jpg" alt="Book 5 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 06 - General topics</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            500/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 06 - General topics</h3><span
+                            class="book-price">Rs. 500/-</span>
                     </div>
                 </div>
-
-                <!-- Book 6 -->
                 <div class="book-card" onclick="openLightbox(6)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 6.jpg" alt="Book 6 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 6.jpg" alt="Book 6 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 07 - General topics</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            500/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 07 - General topics</h3><span
+                            class="book-price">Rs. 500/-</span>
                     </div>
                 </div>
-
-                <!-- Book 7 -->
                 <div class="book-card" onclick="openLightbox(7)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 7.jpg" alt="Book 7 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 7.jpg" alt="Book 7 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 08 - General topics</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            500/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 08 - General topics</h3><span
+                            class="book-price">Rs. 500/-</span>
                     </div>
                 </div>
-
-                <!-- Book 8 -->
                 <div class="book-card" onclick="openLightbox(8)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 8.jpg" alt="Book 8 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 8.jpg" alt="Book 8 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 12 - Valuation for Banks - Part I</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            500/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 12 - Valuation for Banks - Part I</h3><span
+                            class="book-price">Rs. 500/-</span>
                     </div>
                 </div>
-
-                <!-- Book 9 -->
                 <div class="book-card" onclick="openLightbox(9)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 9.jpg" alt="Book 9 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 9.jpg" alt="Book 9 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 14 (Valuation for Banks - Part I)</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            500/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 14 (Valuation for Banks - Part I)</h3><span
+                            class="book-price">Rs. 500/-</span>
                     </div>
                 </div>
-
-                <!-- Book 10 -->
                 <div class="book-card" onclick="openLightbox(10)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 10.jpg" alt="Book 10 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 10.jpg" alt="Book 10 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 16 - 1000 questions & opinions</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            1000/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 16 - 1000 questions & opinions</h3><span
+                            class="book-price">Rs. 1000/-</span>
                     </div>
                 </div>
-
-                <!-- Book 11 -->
                 <div class="book-card" onclick="openLightbox(11)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 11.jpg" alt="Book 11 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 11.jpg" alt="Book 11 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 19 - Model valuation reports</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            700/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 19 - Model valuation reports</h3><span
+                            class="book-price">Rs. 700/-</span>
                     </div>
                 </div>
-
-                <!-- Book 12 -->
                 <div class="book-card" onclick="openLightbox(12)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 12.jpg" alt="Book 12 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 12.jpg" alt="Book 12 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 20 - 750 questions & opinions</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            700/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 20 - 750 questions & opinions</h3><span
+                            class="book-price">Rs. 700/-</span>
                     </div>
                 </div>
-
-                <!-- Book 13 -->
                 <div class="book-card" onclick="openLightbox(13)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 13.jpg" alt="Book 13 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 13.jpg" alt="Book 13 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 22 - 1010 Quiz on valuation</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            500/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 22 - 1010 Quiz on valuation</h3><span
+                            class="book-price">Rs. 500/-</span>
                     </div>
                 </div>
-
-                <!-- Book 14 -->
                 <div class="book-card" onclick="openLightbox(14)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 14.jpg" alt="Book 14 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 14.jpg" alt="Book 14 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 24 - General topics</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            400/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 24 - General topics</h3><span
+                            class="book-price">Rs. 400/-</span>
                     </div>
                 </div>
-
-                <!-- Book 15 -->
                 <div class="book-card" onclick="openLightbox(15)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 15.jpg" alt="Book 15 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 15.jpg" alt="Book 15 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 25 - Compliance of IVS in bank valuation</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            700/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 25 - Compliance of IVS in bank valuation</h3>
+                        <span class="book-price">Rs. 700/-</span>
                     </div>
                 </div>
-
-                <!-- Book 16 -->
                 <div class="book-card" onclick="openLightbox(16)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 16.jpg" alt="Book 16 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 16.jpg" alt="Book 16 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 26 (Flats, Banks, General topics, Capitalgains, Rent, Insurance, Judgements,
-                            Quiz)</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            800/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 26 (Flats, Banks, General topics, Capitalgains,
+                            Rent, Insurance, Judgements, Quiz)</h3><span class="book-price">Rs. 800/-</span>
                     </div>
                 </div>
-
-                <!-- Book 17 -->
                 <div class="book-card" onclick="openLightbox(17)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 17.jpg" alt="Book 17 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 17.jpg" alt="Book 17 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 27 - Six levels of learning of bank valuation (BK webinar materials)</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            1,950/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 27 - Six levels of learning of bank valuation
+                            (BK webinar materials)</h3><span class="book-price">Rs. 1,950/-</span>
                     </div>
                 </div>
-
-                <!-- Book 18 -->
                 <div class="book-card" onclick="openLightbox(18)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 18.jpg" alt="Book 18 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 18.jpg" alt="Book 18 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 28 - Valuation for cost of construction and capital gains (Volume 15 & 21)
-                        </h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            1,100/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 28 - Valuation for cost of construction and
+                            capital gains (Volume 15 & 21)</h3><span class="book-price">Rs. 1,100/-</span>
                     </div>
                 </div>
-
-                <!-- Book 19 -->
                 <div class="book-card" onclick="openLightbox(19)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 19.jpg" alt="Book 19 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 19.jpg" alt="Book 19 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 29 - Valuation of Apartments (*Volume 9)</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            1,700/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 29 - Valuation of Apartments (*Volume 9)</h3>
+                        <span class="book-price">Rs. 1,700/-</span>
                     </div>
                 </div>
-
-                <!-- Book 20 -->
                 <div class="book-card" onclick="openLightbox(20)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 20.jpg" alt="Book 20 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 20.jpg" alt="Book 20 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 30 - Fundamental principles of valuation</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            2,000/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 30 - Fundamental principles of valuation</h3>
+                        <span class="book-price">Rs. 2,000/-</span>
                     </div>
                 </div>
-
-                <!-- Book 21 -->
                 <div class="book-card" onclick="openLightbox(21)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 21.jpg" alt="Book 21 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 21.jpg" alt="Book 21 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 31 - New avenues in valuation and 250 Questions & Opinions</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            1,000/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 31 - New avenues in valuation and 250 Questions
+                            & Opinions</h3><span class="book-price">Rs. 1,000/-</span>
                     </div>
                 </div>
-
-                <!-- Book 22 -->
                 <div class="book-card" onclick="openLightbox(22)">
-                    <div class="book-cover-wrapper">
-                        <img src="book images/Book 22.jpg" alt="Book 22 Cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <span class="zoom-icon"></span>
-                        </div>
+                    <div class="book-cover-wrapper"><img src="book images/Book 22.jpg" alt="Book 22 Cover"
+                            class="book-cover" loading="lazy">
+                        <div class="book-overlay"><span class="zoom-icon"></span></div>
                     </div>
                     <div class="book-info">
-                        <h3 class="book-title" style="font-size:0.95rem; line-height:1.4; margin-bottom:8px;">Practical
-                            Valuation Vol. 32 - Banks, Flats, Capital gains, Questions & Opinions</h3>
-                        <span class="book-price" style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">Rs.
-                            1,100/-</span>
+                        <h3 class="book-title">Practical Valuation Vol. 32 - Banks, Flats, Capital gains, Questions &
+                            Opinions</h3><span class="book-price">Rs. 1,100/-</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- --- PAYMENT & ORDERING INFO --- -->
-        <section class="payment-section"
-            style="width: 90%; max-width: 1000px; margin: 0 auto 60px auto; padding: 40px; background: var(--card-bg); border-radius: 8px; box-shadow: var(--card-shadow); border: 1px solid rgba(226, 232, 240, 0.8);">
-            <h2
-                style="color: var(--primary-dark); font-size: 1.8rem; margin-bottom: 20px; border-bottom: 2px solid var(--accent); padding-bottom: 10px; display: inline-block;">
-                Payment & Ordering Details</h2>
-
-            <p style="margin-bottom: 25px; color: var(--text-dark);">
-                Before placing an order, you may review the contents of each book on my website :
-                <strong>www.bkanagasabapathy.com</strong>. Please note that prices and other details are subject to
+        <!-- ── PAYMENT INFO ── -->
+        <section class="payment-section">
+            <h2>Payment & Ordering Details</h2>
+            <p>Before placing an order, you may review the contents of each book on my website :
+                <strong>https://arunvaluer.com/</strong>. Please note that prices and other details are subject to
                 change without prior notice. Some repetition of articles may occur due to the comprehensive nature of
                 the topics covered.
             </p>
-
-            <div
-                style="background: #f8fafc; padding: 25px; border-radius: 8px; border-left: 4px solid var(--accent); margin-bottom: 25px;">
-                <h3 style="margin-bottom: 15px; color: var(--primary-dark); font-size: 1.3rem;">Payment Details</h3>
-                <p style="margin-bottom: 8px;"><strong>Account Name:</strong> B.K. ARUNA</p>
-                <p style="margin-bottom: 8px;"><strong>Bank:</strong> City union Bank</p>
-                <p style="margin-bottom: 8px;"><strong>Branch:</strong> Cantonment, Tiruchirappalli - 620 001</p>
-                <p style="margin-bottom: 8px;"><strong>Savings Account Number:</strong> 153 001000 499075</p>
-                <p style="margin-bottom: 0;"><strong>IFS Code:</strong> CIUB0000153</p>
+            <div class="payment-details">
+                <h3>Payment Details</h3>
+                <p><strong>Account Name:</strong> B.K. ARUNA</p>
+                <p><strong>Bank:</strong> City union Bank</p>
+                <p><strong>Branch:</strong> Cantonment, Tiruchirappalli - 620 001</p>
+                <p><strong>Savings Account Number:</strong> 153 001000 499075</p>
+                <p style="margin-bottom:0;"><strong>IFS Code:</strong> CIUB0000153</p>
             </div>
-
-            <p style="margin-bottom: 15px; color: var(--text-dark);">
-                Once payment is made, kindly send your payment details along with your complete postal address,
-                including the PIN code, to <strong>bkvaluer@gmail.com</strong>. If you do not receive the books within a
-                week, feel free to send a reminder. Please note that delays may occur if all required information is not
-                provided on time.
-            </p>
-
-            <p style="color: var(--text-dark);">
-                After crediting, please inform your name, mobile number, email, postal address with pincode to Whatsapp
-                : <strong>9791850706</strong> and also to <strong>bkvaluer@gmail.com</strong>. If you don't receive
-                within a week, you may remind. Delay is unavoidable if proper details are not provided in time.
+            <p>Once payment is made, kindly send your payment details along with your complete postal address, including
+                the PIN code, to <strong>everarun@yahoo.com</strong>. If you do not receive the books within a week,
+                feel free to send a reminder. Please note that delays may occur if all required information is not
+                provided on time.</p>
+            <p>After crediting, please inform your name, mobile number, email, postal address with pincode to Whatsapp :
+                <strong>9443379781</strong> and also to <strong>everarun@yahoo.com</strong>. If you don't receive within
+                a week, you may remind. Delay is unavoidable if proper details are not provided in time.
             </p>
         </section>
 
-        <!-- --- LIGHTBOX MODAL --- -->
+        <!-- ── LIGHTBOX ── -->
         <div id="custom-lightbox" class="lightbox" onclick="closeLightbox()">
             <span class="lightbox-close-btn" onclick="closeLightbox()">&times;</span>
             <div class="lightbox-nav-btn prev" onclick="navigateLightbox(-1, event)">&#10094;</div>
             <div class="lightbox-nav-btn next" onclick="navigateLightbox(1, event)">&#10095;</div>
             <div class="lightbox-content-wrapper" onclick="event.stopPropagation()">
                 <div class="lightbox-split-container">
-                    <!-- Left side: Cover & Title -->
                     <div class="lightbox-left-pane">
                         <img id="lightbox-img" class="lightbox-img" src="" alt="Valuation Book Cover Zoomed">
                         <div id="lightbox-caption" class="lightbox-caption">Valuation Book Vol. 1</div>
                         <div id="lightbox-subcaption" class="lightbox-subcaption">Practical Valuation Series</div>
                     </div>
-                    <!-- Right side: Book Table of Contents -->
                     <div class="lightbox-right-pane">
                         <h3 class="contents-header">Table of Contents</h3>
-                        <div id="lightbox-chapters" class="lightbox-chapters-list">
-                            <!-- Populated by JavaScript -->
-                        </div>
+                        <div id="lightbox-chapters" class="lightbox-chapters-list"></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- --- FOOTER --- -->
+        <!-- ── FOOTER ── -->
         <footer>
             <p>&copy; 2026 Arun Kanagasabapathy. All rights reserved. Valuation Books Showcase.</p>
         </footer>
+
+        <!-- ── SCRIPTS ── -->
 
 
     </div>
@@ -4828,59 +4825,29 @@
 
     </script>
     <script>
-        // Toggle mobile menu
+        // Mobile menu
         const menuBtn = document.getElementById('mobile-menu-btn');
         const navMenu = document.getElementById('nav-menu');
-
         menuBtn.addEventListener('click', () => {
             navMenu.classList.toggle('active');
-            menuBtn.classList.toggle('open');
         });
-
-        // Close mobile menu on click of nav items
         document.querySelectorAll('#nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
-                menuBtn.classList.remove('open');
             });
         });
 
-        // Visual fade-in effect on scroll for journey stepper items
-        const journeySteps = document.querySelectorAll('.journey-step');
-
-        const checkScroll = () => {
-            const triggerBottom = window.innerHeight * 0.85;
-
-            journeySteps.forEach(item => {
-                const itemTop = item.getBoundingClientRect().top;
-                if (itemTop < triggerBottom) {
-                    item.classList.add('active');
+        // Scroll animations (timeline + cards)
+        const animateEls = document.querySelectorAll('.animate-in, .timeline-item');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
             });
-        };
+        }, { threshold: 0.15 });
 
-        window.addEventListener('scroll', checkScroll);
-        window.addEventListener('load', checkScroll); // Run on load in case items are already in view
-
-        // Automatic Infinite Carousel for Book Showcase
-        const carouselTrack = document.getElementById('carouselTrack');
-        if (carouselTrack) {
-            let carouselIndex = 0;
-            const carouselTotalOriginalSlides = 22;
-            setInterval(() => {
-                carouselIndex++;
-                carouselTrack.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
-                carouselTrack.style.transform = `translateX(-${carouselIndex * 50}%)`;
-
-                if (carouselIndex >= carouselTotalOriginalSlides) {
-                    setTimeout(() => {
-                        carouselTrack.style.transition = 'none';
-                        carouselIndex = 0;
-                        carouselTrack.style.transform = 'translateX(0)';
-                    }, 600); // Wait for transition animation to complete
-                }
-            }, 2000);
-        }
+        animateEls.forEach(el => observer.observe(el));
     </script>
     <script>
         const bookVolumes = [2, 3, 4, 5, 6, 7, 8, 12, 14, 16, 19, 20, 22, 24, 25, 26, 27, 28, 29, 30, 31, 32];
@@ -4895,66 +4862,45 @@
             topOls.forEach(topOl => {
                 const topType = topOl.getAttribute('type');
                 const level1Lis = topOl.querySelectorAll(':scope > li');
-
                 level1Lis.forEach(li1 => {
-                    // Check top-level item text to adjust markers for major headings
                     const tempClone = li1.cloneNode(true);
                     tempClone.querySelectorAll('ol, ul').forEach(sub => sub.remove());
                     const textContent = tempClone.textContent.trim();
-
                     const isUnnumberedLevel = textContent.startsWith("LEVEL -") || textContent.startsWith("PART -");
-
                     if (isUnnumberedLevel) {
                         li1.style.setProperty('list-style-type', 'none', 'important');
                         topOl.style.setProperty('padding-left', '0px', 'important');
                     } else if (topType === 'I' || textContent.startsWith("FLATS") || textContent.startsWith("BANKS") || textContent.startsWith("GENERAL TOPICS")) {
                         li1.style.setProperty('list-style-type', 'upper-roman', 'important');
                     }
-
                     const level2Ols = li1.querySelectorAll(':scope > ol');
                     level2Ols.forEach(ol2 => {
                         ol2.style.setProperty('list-style-type', 'none', 'important');
-                        if (isUnnumberedLevel) {
-                            ol2.style.setProperty('padding-left', '0px', 'important');
-                        } else {
-                            ol2.style.setProperty('padding-left', '20px', 'important');
-                        }
-
+                        ol2.style.setProperty('padding-left', isUnnumberedLevel ? '0px' : '20px', 'important');
                         const level2Lis = ol2.querySelectorAll(':scope > li');
                         let level2Index = parseInt(ol2.getAttribute('start')) || 1;
-
                         level2Lis.forEach(li2 => {
                             const marker = document.createElement('span');
-                            marker.style.color = 'var(--accent)';
+                            marker.style.color = 'var(--gold)';
                             marker.style.fontWeight = '600';
                             marker.style.marginRight = '8px';
                             marker.innerText = `${level2Index}.`;
                             li2.insertBefore(marker, li2.firstChild);
-
                             const level3Ols = li2.querySelectorAll(':scope > ol');
                             level3Ols.forEach(ol3 => {
                                 ol3.style.setProperty('list-style-type', 'none', 'important');
                                 ol3.style.setProperty('padding-left', '20px', 'important');
-
                                 const level3Lis = ol3.querySelectorAll(':scope > li');
                                 let level3Index = parseInt(ol3.getAttribute('start')) || 1;
-
                                 level3Lis.forEach(li3 => {
-                                    // Check if this level 3 item is an index section header (e.g. "A", "B", "C")
                                     const firstText = li3.childNodes[0] ? li3.childNodes[0].textContent.trim() : '';
                                     const isIndexLetter = (firstText.length === 1 && firstText >= 'A' && firstText <= 'Z') || li3.querySelector('ul');
-
                                     if (isIndexLetter) {
-                                        // Style the divider letter A, B, C...
-                                        li3.style.color = 'var(--accent)';
+                                        li3.style.color = 'var(--gold)';
                                         li3.style.fontWeight = '600';
                                         li3.style.fontSize = '1.05rem';
-                                        li3.style.fontFamily = "'Outfit', sans-serif";
-                                        if (level3Index > 1) {
-                                            li3.style.marginTop = '15px';
-                                        }
-
-                                        // Adjust padding-left on sub-lists
+                                        li3.style.fontFamily = "'Playfair Display', serif";
+                                        if (level3Index > 1) li3.style.marginTop = '15px';
                                         const subUls = li3.querySelectorAll('ul');
                                         subUls.forEach(subUl => {
                                             subUl.style.setProperty('padding-left', '0px', 'important');
@@ -4962,20 +4908,17 @@
                                         });
                                     } else {
                                         const subMarker = document.createElement('span');
-                                        subMarker.style.color = 'rgba(197, 168, 128, 0.8)';
+                                        subMarker.style.color = 'rgba(200, 165, 90, 0.8)';
                                         subMarker.style.fontWeight = '500';
                                         subMarker.style.marginRight = '8px';
                                         subMarker.innerText = `${level2Index}.${level3Index}.`;
                                         li3.insertBefore(subMarker, li3.firstChild);
-
-                                        li3.style.color = '#cbd5e1';
+                                        li3.style.color = '#a8bfb0';
                                         li3.style.fontSize = '0.95rem';
                                     }
-
                                     level3Index++;
                                 });
                             });
-
                             level2Index++;
                         });
                     });
@@ -4987,16 +4930,16 @@
             currentBookIndex = index;
             updateLightboxContent();
             lightbox.classList.add('active');
-            document.getElementById('books-view').style.overflow = 'hidden'; // Disable page scrolling
+            document.getElementById('books-view').style.overflow = 'hidden';
         }
 
         function closeLightbox() {
             lightbox.classList.remove('active');
-            document.getElementById('books-view').style.overflow = 'auto'; // Re-enable page scrolling
+            document.getElementById('books-view').style.overflow = 'auto';
         }
 
         function navigateLightbox(dir, event) {
-            if (event) event.stopPropagation(); // Avoid triggering lightbox close
+            if (event) event.stopPropagation();
             currentBookIndex += dir;
             if (currentBookIndex > totalBooks) currentBookIndex = 1;
             if (currentBookIndex < 1) currentBookIndex = totalBooks;
@@ -5008,52 +4951,39 @@
             lightboxImg.src = `book images/Book ${currentBookIndex}.jpg`;
             lightboxImg.alt = `Valuation Book Vol. ${volNum} Cover`;
             lightboxCaption.innerText = `Valuation Book Vol. ${volNum}`;
-
             const chaptersContainer = document.getElementById('lightbox-chapters');
             chaptersContainer.innerHTML = '';
-
             const chapters = bookContents[volNum.toString()];
             if (chapters) {
                 if (typeof chapters === 'string') {
-                    // Render HTML structured table of contents directly
                     chaptersContainer.innerHTML = chapters;
                     formatNestedLists(chaptersContainer);
                 } else if (Array.isArray(chapters) && chapters.length > 0) {
-                    // Fallback to array listing
                     chapters.forEach(chapter => {
                         const itemDiv = document.createElement('div');
                         itemDiv.className = 'chapter-item';
-
                         const bullet = document.createElement('span');
                         bullet.className = 'chapter-bullet';
                         bullet.innerHTML = '✦';
-
                         const text = document.createElement('span');
                         text.innerText = chapter;
-
                         itemDiv.appendChild(bullet);
                         itemDiv.appendChild(text);
                         chaptersContainer.appendChild(itemDiv);
                     });
                 } else {
-                    chaptersContainer.innerHTML = '<div class="chapter-item" style="color: #64748b;">No table of contents available for this volume.</div>';
+                    chaptersContainer.innerHTML = '<div class="chapter-item" style="color: #7a9a88;">No table of contents available for this volume.</div>';
                 }
             } else {
-                chaptersContainer.innerHTML = '<div class="chapter-item" style="color: #64748b;">No table of contents available for this volume.</div>';
+                chaptersContainer.innerHTML = '<div class="chapter-item" style="color: #7a9a88;">No table of contents available for this volume.</div>';
             }
         }
 
-        // Support keyboard left/right arrow navigation and escape key
         document.addEventListener('keydown', (e) => {
             if (!lightbox.classList.contains('active')) return;
-
-            if (e.key === 'ArrowRight') {
-                navigateLightbox(1);
-            } else if (e.key === 'ArrowLeft') {
-                navigateLightbox(-1);
-            } else if (e.key === 'Escape') {
-                closeLightbox();
-            }
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+            else if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            else if (e.key === 'Escape') closeLightbox();
         });
     </script>
     <script>
